@@ -6,6 +6,9 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
 
 namespace prij_test_newagain
 {
@@ -57,6 +60,7 @@ namespace prij_test_newagain
             validationErrors.Clear();
 
             // Load the password validation rules
+            //niv's path @"Y:\שנה ג\project comp_sec\PasswordValidationRules.txt"
             string filePath = @"Y:\שנה ג\project comp_sec\PasswordValidationRules.txt"; // Update this path
             var rules = File.ReadAllLines(filePath);
 

@@ -53,11 +53,15 @@ namespace prij_test_newagain
         }
 
         protected void ForgotPasswordEventMethod(object sender, EventArgs e)
-        { 
+        {
+            Response.BufferOutput = true;
+            Response.Redirect("Forgot_password.aspx", false);
         }
 
         protected void RegisterEventMethod(object sender, EventArgs e)
-        { 
+        {
+            Response.BufferOutput = true;
+            Response.Redirect("Registration.aspx", false);
         }
     }
 }
