@@ -23,7 +23,7 @@
                         </asp:PlaceHolder> 
                         <asp:Button ID="verifyButton" Text="Verify" runat="server" OnClick="Verify_EventMethod" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 10px;width:150px; background-color:#32323D; color:white; font-family:verdana" Visible="false" />                               
                         <br/>
-                        <asp:Button ID="back_To_Login" Text="Login here" runat="server" OnClick="BackToLoginEventMethod" Style="font-size:10px; border:unset;background-color:white;color:#32323D " />
+                        <asp:Button ID="back_To_Login" Text="Log In" runat="server" OnClick="BackToLoginEventMethod" Style="font-size:10px; border:unset;background-color:white;color:#32323D " />
                         <br />
                         <asp:label ID="Message" runat="server" />                     
                  </div>

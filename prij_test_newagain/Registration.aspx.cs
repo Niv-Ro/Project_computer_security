@@ -31,7 +31,9 @@ namespace prij_test_newagain
                 // Show error message to the user
                 errorLabel.Text = string.Join("<br/>", validationErrors);
                 errorLabel.Visible = true;
-              
+                errorLabel.ForeColor = System.Drawing.Color.Red;
+
+
             }
         }
 
@@ -135,7 +137,9 @@ namespace prij_test_newagain
         }
 
         protected void BackToLogInEventMethod(object sender, EventArgs e)
-        { 
+        {
+            Response.BufferOutput = true;
+            Response.Redirect("Default.aspx", false);
         }
     }
 }

@@ -24,6 +24,15 @@ namespace prij_test_newagain
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// resetPasswordPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder resetPasswordPlaceHolder;
+
+        /// <summary>
         /// lastPassword control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace prij_test_newagain
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submitPassword;
+
+        /// <summary>
+        /// back_To_Login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button back_To_Login;
 
         /// <summary>
         /// Message control.

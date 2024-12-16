@@ -93,7 +93,6 @@
     <Compile Include="Forgot_password.aspx.designer.cs">
       <DependentUpon>Forgot_password.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IEmailSender.cs" />
     <Compile Include="Logged_in.aspx.cs">
       <DependentUpon>Logged_in.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

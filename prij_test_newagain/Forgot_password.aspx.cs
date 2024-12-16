@@ -119,9 +119,6 @@ namespace prij_test_newagain
                     }
                 }
 
-                // Show the verification textbox and button
-                verifyTextBox.Visible = true;
-
 
                 ButtonPlaceHolder.Controls.Clear(); // Remove all controls from the PlaceHolder
                 TextBoxPlaceHolder.Controls.Clear();
