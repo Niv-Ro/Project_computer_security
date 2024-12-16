@@ -11,7 +11,7 @@ namespace prij_test_newagain
 {
 
 
-    public partial class Forgot_password
+    public partial class Reset_password
     {
 
         /// <summary>
@@ -24,67 +24,40 @@ namespace prij_test_newagain
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// TextBoxPlaceHolder control.
+        /// lastPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder TextBoxPlaceHolder;
+        protected global::System.Web.UI.WebControls.TextBox lastPassword;
 
         /// <summary>
-        /// mailTextBox control.
+        /// newPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mailTextBox;
+        protected global::System.Web.UI.WebControls.TextBox newPassword;
 
         /// <summary>
-        /// verifyTextBox control.
+        /// newPasswordAgain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox verifyTextBox;
+        protected global::System.Web.UI.WebControls.TextBox newPasswordAgain;
 
         /// <summary>
-        /// ButtonPlaceHolder control.
+        /// submitPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder ButtonPlaceHolder;
-
-        /// <summary>
-        /// forgot_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button forgot_Button;
-
-        /// <summary>
-        /// verifyButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button verifyButton;
-
-        /// <summary>
-        /// back_To_Login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button back_To_Login;
+        protected global::System.Web.UI.WebControls.Button submitPassword;
 
         /// <summary>
         /// Message control.

@@ -8,6 +8,9 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
+using System.Text;
+
 
 namespace prij_test_newagain
 {
@@ -42,11 +45,13 @@ namespace prij_test_newagain
 
         protected void Verify_EventMethod(object sender, EventArgs e)
         {
-            // Verify the entered code against the generated one
-            if (verifyTextBox.Text == verification.ToString())
+            string hashedInputCode = HashSHA1(verifyTextBox.Text);
+
+            // Compare the entered code with the stored verification code
+            if (hashedInputCode == HashSHA1(verification.ToString()))
             {
                 Response.BufferOutput = true;
-                Response.Redirect("Default.aspx", false); // Redirect if code is correct
+                Response.Redirect("Reset_password.aspx", false); // Redirect if code is correct
             }
             else
             {
@@ -90,13 +95,17 @@ namespace prij_test_newagain
                     return;
                 }
 
+                // Hash the verification code using SHA-1 before sending it
+                string hashedVerificationCode = HashSHA1(verification.ToString());
+
+
                 // Configure and send the email with the verification code
                 using (MailMessage mail = new MailMessage())
                 {
                     mail.From = new MailAddress("matansit04@gmail.com");
                     mail.To.Add(recipientEmail);
                     mail.Subject = "Password Reset";
-                    mail.Body = "Your verification code is: " + verification;
+                    mail.Body = "Your verification code is: " + verification + "\n\nHash: " + hashedVerificationCode;
                     mail.IsBodyHtml = true;
 
                     // Configure SMTP client
@@ -112,9 +121,18 @@ namespace prij_test_newagain
 
                 // Show the verification textbox and button
                 verifyTextBox.Visible = true;
-                forgot_Button.Enabled = false;  // Disable the forgot button after email is sent
-                verifyButton.Visible = true;   // Show the verification button
 
+
+                ButtonPlaceHolder.Controls.Clear(); // Remove all controls from the PlaceHolder
+                TextBoxPlaceHolder.Controls.Clear();
+                // Dynamically add the verifyButton in the same place
+                ButtonPlaceHolder.Controls.Add(verifyButton);
+                TextBoxPlaceHolder.Controls.Add(verifyTextBox);
+
+                forgot_Button.Visible = false;  // Hide forgotButton
+                verifyButton.Visible = true; // Make verifyButton visible
+                mailTextBox.Visible = false;
+                verifyTextBox.Visible = true;
             }
             catch (Exception ex)
             {
@@ -127,6 +145,22 @@ namespace prij_test_newagain
                 reader.Close();
                 conn.Close();
             }
+        }
+        private string HashSHA1(string input)
+        {
+            using (SHA1 sha1 = SHA1.Create())
+            {
+                byte[] data = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in data)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+                // Truncate the hash to 8 characters (you can choose any length here)
+                string truncatedHash = sb.ToString().Substring(0, 8);
+                return truncatedHash;
+            }
+            
         }
     }
 }
