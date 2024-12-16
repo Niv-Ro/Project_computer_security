@@ -58,7 +58,8 @@ namespace prij_test_newagain
 
             // Load the password validation rules
             //niv's path @"Y:\שנה ג\project comp_sec\PasswordValidationRules.txt"
-            string filePath = @"Y:\שנה ג\project comp_sec\PasswordValidationRules.txt"; // Update this path
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PasswordValidationRules.txt");            
+            //string filePath = @"Y:\שנה ג\project comp_sec\PasswordValidationRules.txt"; // Update this path
             var rules = File.ReadAllLines(filePath);
 
             foreach (string rule in rules)

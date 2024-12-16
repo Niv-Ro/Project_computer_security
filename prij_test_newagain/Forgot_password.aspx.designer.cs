@@ -33,6 +33,15 @@ namespace prij_test_newagain
         protected global::System.Web.UI.WebControls.TextBox mailTextBox;
 
         /// <summary>
+        /// verifyTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox verifyTextBox;
+
+        /// <summary>
         /// forgot_Button control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace prij_test_newagain
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button forgot_Button;
+
+        /// <summary>
+        /// verifyButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button verifyButton;
 
         /// <summary>
         /// back_To_Login control.

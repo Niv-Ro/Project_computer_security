@@ -14,12 +14,16 @@
                  <div style="position:relative;top:125px">
                      <h3 style="font-size:30px;color:#32323D">Reset Password</h3>                     
                         <asp:TextBox ID="mailTextBox" runat="server" placeholder="Enter your mail here" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />
-                        <br /><br/>                        
-                         <asp:Button ID="forgot_Button" Text="Send" runat="server" OnClick="Forgot_EventMethod" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 10px;width:150px; background-color:#32323D; color:white; font-family:verdana" />  
-                         <br/>
-                         <asp:Button ID="back_To_Login" Text="Login here" runat="server" OnClick="BackToLoginEventMethod" Style="font-size:10px; border:unset;background-color:white;color:#32323D " />
-                         <br />
-                         <asp:label ID="Message" runat="server" />                     
+                        <br /><br/> 
+                        <asp:TextBox ID="verifyTextBox" runat="server" placeholder="Enter your code" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" Visible="false" />
+                        <br /><br/> 
+                        <asp:Button ID="forgot_Button" Text="Send" runat="server" OnClick="Forgot_EventMethod" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 10px;width:150px; background-color:#32323D; color:white; font-family:verdana" />  
+                        <br /><br/> 
+                        <asp:Button ID="verifyButton" Text="Verify" runat="server" OnClick="Verify_EventMethod" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 10px;width:150px; background-color:#32323D; color:white; font-family:verdana" Visible="false" />                               
+                        <br/>
+                        <asp:Button ID="back_To_Login" Text="Login here" runat="server" OnClick="BackToLoginEventMethod" Style="font-size:10px; border:unset;background-color:white;color:#32323D " />
+                        <br />
+                        <asp:label ID="Message" runat="server" />                     
                  </div>
            </div>
     </form>
