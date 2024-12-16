@@ -45,19 +45,21 @@ namespace prij_test_newagain
 
         protected void Verify_EventMethod(object sender, EventArgs e)
         {
-            string hashedInputCode = HashSHA1(verifyTextBox.Text);
-
-            // Compare the entered code with the stored verification code
-            if (hashedInputCode == HashSHA1(verification.ToString()))
+            //string hashedInputCode = HashSHA1(verifyTextBox.Text);
+            
+            // Compare the entered code with the stored hashed verification code
+            if (verifyTextBox.Text == HashSHA1(verification.ToString()))
             {
                 Response.BufferOutput = true;
                 Response.Redirect("Reset_password.aspx", false); // Redirect if code is correct
             }
             else
             {
-                Message.Text = "Code is incorrect"; // Show an error message if code is wrong
+                ShowMessage("Code is incorrect", System.Drawing.Color.Red);
+
+                //Message.Text = "Code is incorrect"; // Show an error message if code is wrong
                 Message.ForeColor = System.Drawing.Color.Red;
-            }
+                }
         }
 
         protected void Forgot_EventMethod(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace prij_test_newagain
             {
                 // Read email from the TextBox
                 string recipientEmail = mailTextBox.Text;
+                Session["userEmail"] = recipientEmail;
 
                 // Validate email input and check if email exists in the database
                 queryStr = "SELECT * FROM webapp.new_tableuserregistration WHERE email = @Email";
@@ -90,7 +93,9 @@ namespace prij_test_newagain
                 // If email is empty or does not exist in the database
                 if (string.IsNullOrWhiteSpace(recipientEmail) || !reader.HasRows)
                 {
-                    Message.Text = "Please enter a valid email address.";
+                    ShowMessage("Please enter a valid email address.", System.Drawing.Color.Red);
+
+                    //Message.Text = "Please enter a valid email address.";
                     Message.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
@@ -114,12 +119,13 @@ namespace prij_test_newagain
                         smtp.Credentials = new NetworkCredential("matansit04@gmail.com", "jrmp jnxe dpdb cfve");
                         smtp.EnableSsl = true;
                         smtp.Send(mail); // Send the email
-                        Message.Text = "Verification email sent successfully!";
+                        ShowMessage("Verification email sent successfully!", System.Drawing.Color.Green);
+                        //Message.Text = "Verification email sent successfully!";
                         Message.ForeColor = System.Drawing.Color.Green;
-                    }
+                        }
                 }
 
-
+                
                 ButtonPlaceHolder.Controls.Clear(); // Remove all controls from the PlaceHolder
                 TextBoxPlaceHolder.Controls.Clear();
                 // Dynamically add the verifyButton in the same place
@@ -130,6 +136,10 @@ namespace prij_test_newagain
                 verifyButton.Visible = true; // Make verifyButton visible
                 mailTextBox.Visible = false;
                 verifyTextBox.Visible = true;
+
+                
+
+
             }
             catch (Exception ex)
             {
@@ -138,7 +148,7 @@ namespace prij_test_newagain
             }
             finally
             {
-                // Close the connection and reader
+                // Close the connection and reader            
                 reader.Close();
                 conn.Close();
             }
@@ -159,6 +169,34 @@ namespace prij_test_newagain
             }
             
         }
+        // To store the timeout ID and cancel the previous timeout if needed
+        private static int timeoutId = -1;
+
+        private void ShowMessage(string message, System.Drawing.Color color)
+        {
+            // Clear the previous timeout (if exists)
+            if (timeoutId != -1)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "CancelPreviousTimeout", $"clearTimeout({timeoutId});", true);
+            }
+
+            // Reset the message content and visibility
+            Message.Visible = false;
+            Message.Text = string.Empty;
+
+            // Set new message content and color
+            Message.Text = message;
+            Message.ForeColor = color;
+            Message.Visible = true;
+
+            // Create a timeout to hide the message after 2 seconds
+            timeoutId = new Random().Next(); // Generate a new unique timeout ID
+            string script = $"setTimeout(function() {{ document.getElementById('{Message.ClientID}').style.display = 'none'; }}, 2000);";
+
+            // Register the timeout script with a unique identifier
+            ClientScript.RegisterStartupScript(this.GetType(), $"HideMessage{timeoutId}", script, true);
+        }
+
     }
 }
 

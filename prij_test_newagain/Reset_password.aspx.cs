@@ -31,18 +31,42 @@ namespace prij_test_newagain
 
         protected void Submit_New_Password_EventMethod(object sender, EventArgs e)
         {
-            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text))
+            string userEmail = Session["userEmail"]?.ToString();
+            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text) && Check_email_password(userEmail,lastPassword.Text))
             {
                 resetPasswordPlaceHolder.Controls.Clear();
                 lastPassword.Visible = false;
                 newPassword.Visible = false;
                 newPasswordAgain.Visible = false;
                 submitPassword.Visible = false;
+
                 Message.Text = "Password reset complete!";
                 Message.ForeColor = System.Drawing.Color.Green;
                 Message.Visible = true;
 
                 resetPasswordPlaceHolder.Controls.Add(Message);
+
+                string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+                using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
+                {            
+                    // Query string with parameters
+                    string queryStr = "UPDATE webapp.new_tableuserregistration SET password = @Password WHERE email = @Email";
+
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn))
+                    {
+                        // Add parameters to the command
+                        cmd.Parameters.AddWithValue("@Password", newPassword.Text);
+                        cmd.Parameters.AddWithValue("@Email", userEmail);
+
+                        // Open the connection
+                        conn.Open();
+
+                        // Execute the query
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        Console.WriteLine($"{rowsAffected} row(s) updated successfully.");
+                    }
+                }
+
 
                 string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
                 ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
@@ -129,6 +153,49 @@ namespace prij_test_newagain
                 writer.WriteLine($"Unrecognized Rule: {rule} - {DateTime.Now}");
             }
         }
+        private bool Check_email_password(string email, string password)
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            MySql.Data.MySqlClient.MySqlCommand cmd;
+            MySql.Data.MySqlClient.MySqlDataReader reader;
+
+            // Retrieve connection string
+            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+            conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
+
+            try
+            {
+                conn.Open();
+
+                // SQL query to check email and password
+                string queryStr = "SELECT * FROM webapp.new_tableuserregistration WHERE email = @Email AND password = @Password";
+                cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn);
+
+                // Use parameterized query
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Password", password);
+
+                reader = cmd.ExecuteReader();
+
+                // Return true if a match is found
+                return reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it
+                Message.Text = "An error occurred: " + ex.Message;
+                Message.ForeColor = System.Drawing.Color.Red;
+                return false;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
 
     }
 }

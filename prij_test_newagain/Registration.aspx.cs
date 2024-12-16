@@ -11,9 +11,9 @@ namespace prij_test_newagain
 {
     public partial class Registration : System.Web.UI.Page
     {
-        MySql.Data.MySqlClient.MySqlConnection conn;
-        MySql.Data.MySqlClient.MySqlCommand cmd;
-        string queryStr;
+        //MySql.Data.MySqlClient.MySqlConnection conn;
+        //MySql.Data.MySqlClient.MySqlCommand cmd;
+        //string queryStr;
         private List<string> validationErrors = new List<string>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace prij_test_newagain
             }
         }
 
-        private void RegisterUser()
+        /*private void RegisterUser()
         {
             string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             
@@ -51,7 +51,35 @@ namespace prij_test_newagain
 
             conn.Close();
 
+        }*/
+
+        private void RegisterUser()
+        {
+            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+
+            // Use a using block to ensure proper disposal of the connection
+            using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
+            {
+                conn.Open();
+
+                string queryStr = "INSERT INTO webapp.new_tableuserregistration (firstname, lastname, username, password, email) " +
+                                  "VALUES (@FirstName, @LastName, @UserName, @Password, @Email)";
+
+                using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn))
+                {
+                    // Use parameters to securely add user input
+                    cmd.Parameters.AddWithValue("@FirstName", firstNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@LastName", lastNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@UserName", userNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@Password", passWordTextBox.Text); // Note: Consider hashing the password before storing it
+                    cmd.Parameters.AddWithValue("@Email", emailTextBox.Text);
+
+                    // Execute the command
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
+
 
         private bool ValidatePassword(string password)
         {
