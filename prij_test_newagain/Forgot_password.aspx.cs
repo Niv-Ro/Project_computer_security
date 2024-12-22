@@ -110,7 +110,7 @@ namespace prij_test_newagain
                     mail.From = new MailAddress("matansit04@gmail.com");
                     mail.To.Add(recipientEmail);
                     mail.Subject = "Password Reset";
-                    mail.Body = "Your verification code is: " + verification + "\n\nHash: " + hashedVerificationCode;
+                    mail.Body = "Your verification code is: " + hashedVerificationCode;
                     mail.IsBodyHtml = true;
 
                     // Configure SMTP client
@@ -163,9 +163,8 @@ namespace prij_test_newagain
                 {
                     sb.Append(b.ToString("x2"));
                 }
-                // Truncate the hash to 8 characters (you can choose any length here)
-                string truncatedHash = sb.ToString().Substring(0, 8);
-                return truncatedHash;
+                 
+                return sb.ToString();
             }
             
         }
