@@ -193,3 +193,151 @@ Unrecognized Rule:  - 12/16/2024 5:11:23 PM
 Unrecognized Rule: Password Validation Rules - 12/16/2024 5:11:23 PM
 Unrecognized Rule:  - 12/16/2024 5:11:23 PM
 Unrecognized Rule:  - 12/16/2024 5:11:23 PM
+Unrecognized Rule:  - 22/12/2024 14:47:15
+Unrecognized Rule: Password Validation Rules - 22/12/2024 14:47:15
+Unrecognized Rule:  - 22/12/2024 14:47:15
+Unrecognized Rule:  - 22/12/2024 14:47:15
+Unrecognized Rule:  - 22/12/2024 14:49:09
+Unrecognized Rule: Password Validation Rules - 22/12/2024 14:49:09
+Unrecognized Rule:  - 22/12/2024 14:49:09
+Unrecognized Rule:  - 22/12/2024 14:49:09
+Unrecognized Rule:  - 22/12/2024 14:55:13
+Unrecognized Rule: Password Validation Rules - 22/12/2024 14:55:13
+Unrecognized Rule:  - 22/12/2024 14:55:13
+Unrecognized Rule:  - 22/12/2024 14:55:13
+Unrecognized Rule:  - 22/12/2024 14:55:20
+Unrecognized Rule: Password Validation Rules - 22/12/2024 14:55:20
+Unrecognized Rule:  - 22/12/2024 14:55:20
+Unrecognized Rule:  - 22/12/2024 14:55:20
+Unrecognized Rule:  - 22/12/2024 14:59:19
+Unrecognized Rule: Password Validation Rules - 22/12/2024 14:59:19
+Unrecognized Rule:  - 22/12/2024 14:59:19
+Unrecognized Rule:  - 22/12/2024 14:59:19
+Unrecognized Rule:  - 22/12/2024 14:59:26
+Unrecognized Rule: Password Validation Rules - 22/12/2024 14:59:26
+Unrecognized Rule:  - 22/12/2024 14:59:26
+Unrecognized Rule:  - 22/12/2024 14:59:26
+Unrecognized Rule:  - 22/12/2024 15:02:15
+Unrecognized Rule: Password Validation Rules - 22/12/2024 15:02:15
+Unrecognized Rule:  - 22/12/2024 15:02:15
+Unrecognized Rule:  - 22/12/2024 15:02:15
+Unrecognized Rule:  - 22/12/2024 15:02:50
+Unrecognized Rule: Password Validation Rules - 22/12/2024 15:02:50
+Unrecognized Rule:  - 22/12/2024 15:02:50
+Unrecognized Rule:  - 22/12/2024 15:02:50
+Unrecognized Rule:  - 22/12/2024 15:02:56
+Unrecognized Rule: Password Validation Rules - 22/12/2024 15:02:56
+Unrecognized Rule:  - 22/12/2024 15:02:56
+Unrecognized Rule:  - 22/12/2024 15:02:56
+Unrecognized Rule:  - 22/12/2024 16:14:42
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:14:42
+Unrecognized Rule:  - 22/12/2024 16:14:42
+Unrecognized Rule:  - 22/12/2024 16:14:42
+Unrecognized Rule:  - 22/12/2024 16:15:20
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:15:20
+Unrecognized Rule:  - 22/12/2024 16:15:20
+Unrecognized Rule:  - 22/12/2024 16:15:20
+Unrecognized Rule:  - 22/12/2024 16:15:22
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:15:22
+Unrecognized Rule:  - 22/12/2024 16:15:22
+Unrecognized Rule:  - 22/12/2024 16:15:22
+Unrecognized Rule:  - 22/12/2024 16:15:46
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:15:46
+Unrecognized Rule:  - 22/12/2024 16:15:46
+Unrecognized Rule:  - 22/12/2024 16:15:46
+Unrecognized Rule:  - 22/12/2024 16:15:53
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:15:53
+Unrecognized Rule:  - 22/12/2024 16:15:53
+Unrecognized Rule:  - 22/12/2024 16:15:53
+Unrecognized Rule:  - 22/12/2024 16:15:54
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:15:54
+Unrecognized Rule:  - 22/12/2024 16:15:54
+Unrecognized Rule:  - 22/12/2024 16:15:54
+Unrecognized Rule:  - 22/12/2024 16:15:58
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:15:58
+Unrecognized Rule:  - 22/12/2024 16:15:58
+Unrecognized Rule:  - 22/12/2024 16:15:58
+Unrecognized Rule:  - 22/12/2024 16:16:06
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:16:06
+Unrecognized Rule:  - 22/12/2024 16:16:06
+Unrecognized Rule:  - 22/12/2024 16:16:06
+Unrecognized Rule:  - 22/12/2024 16:17:46
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:17:46
+Unrecognized Rule:  - 22/12/2024 16:17:46
+Unrecognized Rule:  - 22/12/2024 16:17:46
+Unrecognized Rule:  - 22/12/2024 16:23:58
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:23:58
+Unrecognized Rule:  - 22/12/2024 16:23:58
+Unrecognized Rule:  - 22/12/2024 16:23:58
+Unrecognized Rule:  - 22/12/2024 16:24:07
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:24:07
+Unrecognized Rule:  - 22/12/2024 16:24:07
+Unrecognized Rule:  - 22/12/2024 16:24:07
+Unrecognized Rule:  - 22/12/2024 16:24:30
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:24:30
+Unrecognized Rule:  - 22/12/2024 16:24:30
+Unrecognized Rule:  - 22/12/2024 16:24:30
+Unrecognized Rule:  - 22/12/2024 16:24:30
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:24:30
+Unrecognized Rule:  - 22/12/2024 16:24:30
+Unrecognized Rule:  - 22/12/2024 16:24:30
+Unrecognized Rule:  - 22/12/2024 16:24:31
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:24:31
+Unrecognized Rule:  - 22/12/2024 16:24:31
+Unrecognized Rule:  - 22/12/2024 16:24:31
+Unrecognized Rule:  - 22/12/2024 16:24:36
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:24:36
+Unrecognized Rule:  - 22/12/2024 16:24:36
+Unrecognized Rule:  - 22/12/2024 16:24:36
+Unrecognized Rule:  - 22/12/2024 16:24:37
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:24:37
+Unrecognized Rule:  - 22/12/2024 16:24:37
+Unrecognized Rule:  - 22/12/2024 16:24:37
+Unrecognized Rule:  - 22/12/2024 16:25:04
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:25:04
+Unrecognized Rule:  - 22/12/2024 16:25:04
+Unrecognized Rule:  - 22/12/2024 16:25:04
+Unrecognized Rule:  - 22/12/2024 16:25:19
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:25:19
+Unrecognized Rule:  - 22/12/2024 16:25:19
+Unrecognized Rule:  - 22/12/2024 16:25:19
+Unrecognized Rule:  - 22/12/2024 16:28:52
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:28:52
+Unrecognized Rule:  - 22/12/2024 16:28:52
+Unrecognized Rule:  - 22/12/2024 16:28:52
+Unrecognized Rule:  - 22/12/2024 16:32:30
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:32:30
+Unrecognized Rule:  - 22/12/2024 16:32:30
+Unrecognized Rule:  - 22/12/2024 16:32:30
+Unrecognized Rule:  - 22/12/2024 16:32:36
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:32:36
+Unrecognized Rule:  - 22/12/2024 16:32:36
+Unrecognized Rule:  - 22/12/2024 16:32:36
+Unrecognized Rule:  - 22/12/2024 16:33:36
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:33:36
+Unrecognized Rule:  - 22/12/2024 16:33:36
+Unrecognized Rule:  - 22/12/2024 16:33:36
+Unrecognized Rule:  - 22/12/2024 16:33:41
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:33:41
+Unrecognized Rule:  - 22/12/2024 16:33:41
+Unrecognized Rule:  - 22/12/2024 16:33:41
+Unrecognized Rule:  - 22/12/2024 16:35:26
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:35:26
+Unrecognized Rule:  - 22/12/2024 16:35:26
+Unrecognized Rule:  - 22/12/2024 16:35:26
+Unrecognized Rule:  - 22/12/2024 16:37:00
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:37:00
+Unrecognized Rule:  - 22/12/2024 16:37:00
+Unrecognized Rule:  - 22/12/2024 16:37:00
+Unrecognized Rule:  - 22/12/2024 16:37:06
+Unrecognized Rule: Password Validation Rules - 22/12/2024 16:37:06
+Unrecognized Rule:  - 22/12/2024 16:37:06
+Unrecognized Rule:  - 22/12/2024 16:37:06
+Unrecognized Rule:  - 22/12/2024 17:07:18
+Unrecognized Rule: Password Validation Rules - 22/12/2024 17:07:18
+Unrecognized Rule:  - 22/12/2024 17:07:18
+Unrecognized Rule:  - 22/12/2024 17:07:18
+Unrecognized Rule:  - 22/12/2024 18:11:15
+Unrecognized Rule: Password Validation Rules - 22/12/2024 18:11:15
+Unrecognized Rule:  - 22/12/2024 18:11:15
+Unrecognized Rule:  - 22/12/2024 18:11:15

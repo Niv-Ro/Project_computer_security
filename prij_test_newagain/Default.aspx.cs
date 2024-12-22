@@ -19,40 +19,32 @@ namespace prij_test_newagain
         {
 
         }
-        protected void LogInEventMethod(object sender, EventArgs e)
+        protected void LogInEventMethod(object sender, EventArgs e)   // need to use  the Validate password before registering!!!!!!!!!!!!!!!!!!!!!!!
+
         {
-            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();//retrive connection string and stores it in connstring
-            conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
-            conn.Open();
-            queryStr = "";
-            queryStr = "SELECT * FROM webapp.new_tableuserregistration WHERE username='"+ userNameTextBox.Text +"' AND password='" + passWordTextBox.Text +"' ";
-            cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn);
-            reader = cmd.ExecuteReader();
-            name = "";
-            while (reader.HasRows && reader.Read())
+            /// change to  hash and salt in login!!!!!!!!!!!!!!!!!!!!!!!
+            SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
+            SecurePasswordHandler.VerificationResult result = SecurePassword.VerifyHashPassword(userNameTextBox.Text, passWordTextBox.Text);
+            // Check the result
+            if (result.IsValid)
             {
-                name = reader.GetString(reader.GetOrdinal("firstname")) + " " + reader.GetString(reader.GetOrdinal("lastname"));
-            }
-
-
-            if (reader.HasRows)
-            {
-                Session["uname"] = name;
+                Session["uname"] = result.Message;
                 Response.BufferOutput = true;
                 Response.Redirect("Logged_in.aspx", false);
             }
             else
             {
-               // passWordTextBox.Text = "Invalid user";
-                Message.Text= "Invalid user";
+                passWordTextBox.Text = "Invalid user";
+                Message.Text = "Invalid user";
             }
-            reader.Close();
-            conn.Close();
-
-
         }
 
-        protected void ForgotPasswordEventMethod(object sender, EventArgs e)
+
+
+
+
+
+protected void ForgotPasswordEventMethod(object sender, EventArgs e)
         {
             Response.BufferOutput = true;
             Response.Redirect("Forgot_password.aspx", false);

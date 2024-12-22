@@ -22,9 +22,16 @@ namespace prij_test_newagain
         }
         protected void RegisterEventMethod(object sender, EventArgs e)
         {
+            
+            
+            /// change to  hash and salt in registration
+            SecurePasswordHandler  SecurePassword= new SecurePasswordHandler();
+
             if (ValidatePassword(passWordTextBox.Text)) // Validate password before registering
             {
-                RegisterUser();
+               //RegisterUser();
+                SecurePassword.SaveNewUser(firstNameTextBox.Text, lastNameTextBox.Text, userNameTextBox.Text, passWordTextBox.Text, emailTextBox.Text);
+
             }
             else
             {
@@ -35,7 +42,12 @@ namespace prij_test_newagain
 
 
             }
+
+
+
+
         }
+
 
         /*private void RegisterUser()
         {
