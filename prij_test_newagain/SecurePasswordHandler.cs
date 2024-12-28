@@ -68,99 +68,78 @@ public class SecurePasswordHandler
         return (hashedPassword, saltString);
     }
 
-    // Save user to database with hashed password and salt
-    public bool SaveNewUser(string firstName, string lastName, string username, string password, string email)
+
+
+   public bool VerifyHashPassword(string username, string password)
     {
+        // Retrieve connection string from web.config
+        string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
 
-
-        // Create password hash and salt
-        var (hashedSaltPassword, salt) = CreatePasswordHash(password);
-
-        using (var connection = new MySql.Data.MySqlClient.MySqlConnection(CONNECTION_STRING))
+        using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
         {
-            connection.Open();
-
-            // SQL command with parameterized query to prevent SQL injection
-            string sql = @"INSERT INTO webapp.new_tableuserregistration (username,firstname,lastname,password, password_hash, salt, email) 
-                             VALUES (@UserName,@FirstName,@LastName,@Password, @password_Hash, @salt, @Email)";
-
-            using (var cmd = new MySqlCommand(sql, connection))
+            try
             {
-                // Use parameters to securely add user input
-                cmd.Parameters.AddWithValue("@FirstName", firstName);
-                cmd.Parameters.AddWithValue("@LastName", lastName);
-                cmd.Parameters.AddWithValue("@UserName", username);
-                cmd.Parameters.AddWithValue("@Password", password);
-                cmd.Parameters.AddWithValue("@Salt", salt);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
+                conn.Open();
 
-                cmd.ExecuteNonQuery();
+                // SQL to retrieve password hash and salt for the given username
+                string sql = "SELECT password_hash, salt FROM new_tableuserregistration WHERE username = @username";
 
-            }
-            return true;
-        }
-    }
-
-    // Verify password during login
-
-
-        public VerificationResult VerifyHashPassword(string username, string password)
-        {
-            using (var connection = new MySqlConnection(CONNECTION_STRING))
-            {
-                connection.Open();
-                // Get stored hash, salt, and user's full name
-                string sql = "SELECT password_hash, salt, firstname, lastname FROM new_tableuserregistration WHERE username = @username";
-                using (var command = new MySqlCommand(sql, connection))
+                using (var command = new MySqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@username", username);
+
+                    // Execute the query and check if user exists
                     using (var reader = command.ExecuteReader())
                     {
-                        if (!reader.Read())
+                        if (reader.Read())
                         {
-                            return new VerificationResult
+                            // Retrieve the stored hash and salt
+                            string storedHash = !reader.IsDBNull(0) ? reader.GetString(0) : null;
+                            string storedSalt = !reader.IsDBNull(1) ? reader.GetString(1) : null;
+
+                            if (string.IsNullOrEmpty(storedHash) || string.IsNullOrEmpty(storedSalt))
                             {
-                                IsValid = false,
-                                Message = "User not found"
-                            };
+                                // Log the issue if stored hash or salt is missing
+                                return false;
+                            }
+
+                            // Convert the stored salt from Base64 to byte array
+                            byte[] saltBytes = Convert.FromBase64String(storedSalt);
+
+                            // Hash the entered password with the retrieved salt
+                            byte[] hashBytes = HashPassword(password, saltBytes);
+                            string hashedInput = Convert.ToBase64String(hashBytes);
+
+                            // Compare the entered password hash with the stored hash
+                            if (storedHash.Equals(hashedInput))
+                            {
+                                // If the hashes match, the password is correct
+                                return true;
+                            }
+                            else
+                            {
+                                // If the hashes don't match, the password is invalid
+                                return false;
+                            }
                         }
-
-                        string storedHash = reader.GetString(0);
-                        string storedSalt = reader.GetString(1);
-                        string firstName = reader.GetString(2);
-                        string lastName = reader.GetString(3);
-
-                        // Convert stored salt from base64
-                        byte[] saltBytes = Convert.FromBase64String(storedSalt);
-                        // Hash the input password with stored salt
-                        byte[] hashBytes = HashPassword(password, saltBytes);
-                        string hashedInput = Convert.ToBase64String(hashBytes);
-
-                        // Compare hashes
-                        bool isValid = storedHash.Equals(hashedInput);
-
-                    if (isValid)
-                    {
-                        return new VerificationResult
+                        else
                         {
-                            IsValid = isValid,
-                            Message = $"{firstName} {lastName}"
-                        };
-                    }
-                    else
-                    {
-                        return new VerificationResult
-                        {
-                            IsValid = isValid,
-                            Message =  "Invalid password"
-                        };
-                    }
-                      
+                            // No user found with the given username
+                            return false;
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                // Log exceptions for debugging
+                Console.WriteLine($"Error during password verification for user {username}: {ex.Message}");
+                return false;
+            }
         }
     }
+
+
+}
 
 

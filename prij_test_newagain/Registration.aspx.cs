@@ -29,9 +29,9 @@ namespace prij_test_newagain
 
             if (ValidatePassword(passWordTextBox.Text)) // Validate password before registering
             {
-               //RegisterUser();
-                SecurePassword.SaveNewUser(firstNameTextBox.Text, lastNameTextBox.Text, userNameTextBox.Text, passWordTextBox.Text, emailTextBox.Text);
-
+               RegisterUser();
+                Response.BufferOutput = true;
+                Response.Redirect("Default.aspx", false);
             }
             else
             {
@@ -39,12 +39,7 @@ namespace prij_test_newagain
                 errorLabel.Text = string.Join("<br/>", validationErrors);
                 errorLabel.Visible = true;
                 errorLabel.ForeColor = System.Drawing.Color.Red;
-
-
             }
-
-
-
 
         }
 
@@ -68,23 +63,30 @@ namespace prij_test_newagain
         private void RegisterUser()
         {
             string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+            SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
+            var (hashedSaltPassword, salt) = SecurePassword.CreatePasswordHash(passWordTextBox.Text);
 
             // Use a using block to ensure proper disposal of the connection
             using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
             {
                 conn.Open();
 
-                string queryStr = "INSERT INTO webapp.new_tableuserregistration (firstname, lastname, username, password, email) " +
-                                  "VALUES (@FirstName, @LastName, @UserName, @Password, @Email)";
+                string queryStr = "INSERT INTO webapp.new_tableuserregistration (firstname, lastname, username, password, email, password_hash, salt) " +
+                                  "VALUES (@FirstName, @LastName, @UserName, @Password, @Email, @password_Hash, @salt)";
+
 
                 using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn))
                 {
+
                     // Use parameters to securely add user input
                     cmd.Parameters.AddWithValue("@FirstName", firstNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@LastName", lastNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@UserName", userNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@Password", passWordTextBox.Text); // Note: Consider hashing the password before storing it
                     cmd.Parameters.AddWithValue("@Email", emailTextBox.Text);
+                    cmd.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
+                    cmd.Parameters.AddWithValue("@Salt", salt);
+                    
 
                     // Execute the command
                     cmd.ExecuteNonQuery();
@@ -99,9 +101,7 @@ namespace prij_test_newagain
             validationErrors.Clear();
 
             // Load the password validation rules
-            //niv's path @"Y:\שנה ג\project comp_sec\PasswordValidationRules.txt"
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PasswordValidationRules.txt");            
-            //string filePath = @"Y:\שנה ג\project comp_sec\PasswordValidationRules.txt"; // Update this path
             var rules = File.ReadAllLines(filePath);
 
             foreach (string rule in rules)

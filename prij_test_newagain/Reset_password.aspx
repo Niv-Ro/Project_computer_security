@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reset_password.aspx.cs" Inherits="prij_test_newagain.Reset_password" Async="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reset_password.aspx.cs" Inherits="prij_test_newagain.Reset_password"%>
 
 <!DOCTYPE html>
 
