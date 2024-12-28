@@ -23,8 +23,12 @@ namespace prij_test_newagain
             if (SecurePassword.VerifyHashPassword(userNameTextBox.Text, passWordTextBox.Text))
             {
                 Session["uname"] = userNameTextBox.Text;
+                userNameTextBox.Text = "";
+                passWordTextBox.Text = "";            
                 Response.BufferOutput = true;
                 Response.Redirect("Logged_in.aspx", false);
+                
+
             }
             else
             {
@@ -37,16 +41,18 @@ namespace prij_test_newagain
 
 
 
-protected void ForgotPasswordEventMethod(object sender, EventArgs e)
-        {
+        protected void ForgotPasswordEventMethod(object sender, EventArgs e)
+            {
+            Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("Forgot_password.aspx", false);
-        }
+            }
 
         protected void RegisterEventMethod(object sender, EventArgs e)
-        {
+            {
+            Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("Registration.aspx", false);
+            }
         }
-    }
 }

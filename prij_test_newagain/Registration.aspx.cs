@@ -29,7 +29,8 @@ namespace prij_test_newagain
 
             if (ValidatePassword(passWordTextBox.Text)) // Validate password before registering
             {
-               RegisterUser();
+                RegisterUser();
+                Session.Abandon();
                 Response.BufferOutput = true;
                 Response.Redirect("Default.aspx", false);
             }
@@ -178,6 +179,7 @@ namespace prij_test_newagain
 
         protected void BackToLogInEventMethod(object sender, EventArgs e)
         {
+            Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("Default.aspx", false);
         }

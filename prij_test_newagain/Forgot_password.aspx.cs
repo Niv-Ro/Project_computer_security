@@ -39,6 +39,7 @@ namespace prij_test_newagain
 
         protected void BackToLoginEventMethod(object sender, EventArgs e)
         {
+            Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("Default.aspx", false);
         }
@@ -136,10 +137,6 @@ namespace prij_test_newagain
                 verifyButton.Visible = true; // Make verifyButton visible
                 mailTextBox.Visible = false;
                 verifyTextBox.Visible = true;
-
-                
-
-
             }
             catch (Exception ex)
             {

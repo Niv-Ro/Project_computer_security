@@ -24,6 +24,7 @@ namespace prij_test_newagain
 
         protected void BackToLoginEventMethod(object sender, EventArgs e)
         {
+            Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("Default.aspx", false);
         }
