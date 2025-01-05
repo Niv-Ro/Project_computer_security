@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Mail;
 
 namespace prij_test_newagain
 {
@@ -29,10 +30,19 @@ namespace prij_test_newagain
 
             if (ValidatePassword(passWordTextBox.Text)) // Validate password before registering
             {
-                RegisterUser();
-                Session.Abandon();
-                Response.BufferOutput = true;
-                Response.Redirect("Default.aspx", false);
+                if (EmailIsValid(emailTextBox.Text))
+                {
+                    RegisterUser();
+                    Session.Abandon();
+                    Response.BufferOutput = true;
+                    Response.Redirect("Default.aspx", false);
+                }
+                else {
+                    errorLabel.Text = "Email is not valid";
+                    errorLabel.Visible = true;
+                    errorLabel.ForeColor = System.Drawing.Color.Red;
+                }
+                
             }
             else
             {
@@ -61,8 +71,25 @@ namespace prij_test_newagain
 
         }*/
 
+        public bool EmailIsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
         private void RegisterUser()
         {
+
+            /*
+            */
+
             string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
             var (hashedSaltPassword, salt) = SecurePassword.CreatePasswordHash(passWordTextBox.Text);
