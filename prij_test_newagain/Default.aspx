@@ -16,7 +16,7 @@
                      <h3 style="font-size:30px;color:#32323D">Login</h3>                     
                         <asp:TextBox ID="userNameTextBox" runat="server" placeholder="Enter user name here" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />
                         <br /><br/>
-                         <asp:TextBox ID="passWordTextBox" runat="server" placeholder="Enter password here" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />                         
+                         <asp:TextBox ID="passWordTextBox" runat="server" placeholder="Enter password here" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px;font-family:verdana; border-color:#32323D" TextMode="Password" />                         
                          <br /><br/>
                          <asp:Button ID="logInButton" Text="Log In" runat="server" OnClick="LogInEventMethod" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 10px;width:150px; background-color:#32323D; color:white; font-family:verdana" />  
                          <br/>
