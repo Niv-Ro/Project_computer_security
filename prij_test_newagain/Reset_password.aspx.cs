@@ -56,10 +56,12 @@ namespace prij_test_newagain
                     conn.Open();
 
                     // Single update query that handles everything
-                    string updateQuery = @"UPDATE webapp.new_tableuserregistration SET prev_hash_2 = prev_hash_1,prev_salt_2 = prev_salt_1,prev_hash_1 = password_hash,prev_salt_1 = salt,password = @Password,password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
-
-                    try
-                    {
+                    string updateQuery = @"UPDATE webapp.new_tableuserregistration SET password = @Password,password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
+                    string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
+                           "VALUES (@Email, @password_Hash, @salt)";
+                   
+                    //try
+                    //{
                         using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(updateQuery, conn))
                         {
                             cmd.Parameters.AddWithValue("@Password", newPassword.Text);
@@ -68,18 +70,26 @@ namespace prij_test_newagain
                             cmd.Parameters.AddWithValue("@Salt", salt);
                             cmd.ExecuteNonQuery();
                         }
+                        using (var cmd2 = new MySql.Data.MySqlClient.MySqlCommand(queryStr2, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@Email", userEmail);
+                            cmd2.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
+                            cmd2.Parameters.AddWithValue("@salt", salt);
+
+                            cmd2.ExecuteNonQuery();
+                        }
 
 
                         string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
                         ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
 
-                    }
-                    catch (Exception ex)
-                    {
-                        Message.Text = "An error occurred while resetting your password. Please try again.";
-                        Message.ForeColor = System.Drawing.Color.Red;
-                        Message.Visible = true;
-                    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    Message.Text = "An error occurred while resetting your password. Please try again.";
+                    //    Message.ForeColor = System.Drawing.Color.Red;
+                    //    Message.Visible = true;
+                    //}
                 }
             }
 
@@ -143,10 +153,12 @@ namespace prij_test_newagain
                 }
                 else if (rule.Contains("Password History"))
                 {
+                    int History_num = ExtractNumber(rule);
+
                     String userEmail = (string)(Session["userEmail"]);
                     // Check if the password matches any of the last 3 passwords
                     SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
-                    if (SecurePassword.IsPasswordInHistory(userEmail, password))
+                    if (SecurePassword.IsPasswordInHistory(userEmail, password, History_num))
                     {
                         validationErrors.Add("Password cannot be one of your last 3 passwords.");
                     }

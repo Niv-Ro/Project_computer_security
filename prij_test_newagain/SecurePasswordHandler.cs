@@ -139,7 +139,7 @@ public class SecurePasswordHandler
         }
     }
 
-    public bool IsPasswordInHistory(string email, string password)
+    public bool IsPasswordInHistory(string email, string password, int history_num)
     {
         string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
 
@@ -150,28 +150,24 @@ public class SecurePasswordHandler
                 conn.Open();
 
                 // SQL to retrieve the current password hash and salts
-                string sql = @"SELECT password_hash, salt, prev_hash_1, prev_salt_1, prev_hash_2, prev_salt_2 
-                           FROM webapp.new_tableuserregistration 
-                           WHERE email = @Email";
+                string sql = @"SELECT Email, password_hash, salt FROM webapp.new_user_hash_salt_data WHERE Email = @Email ORDER BY Email DESC LIMIT @history_num";
 
                 using (var command = new MySql.Data.MySqlClient.MySqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@HistoryNum", history_num);
+
 
                     using (var reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            string currentHash = reader.IsDBNull(0) ? null : reader.GetString(0);
-                            string currentSalt = reader.IsDBNull(1) ? null : reader.GetString(1);
-                            string prevHash1 = reader.IsDBNull(2) ? null : reader.GetString(2);
-                            string prevSalt1 = reader.IsDBNull(3) ? null : reader.GetString(3);
-                            string prevHash2 = reader.IsDBNull(4) ? null : reader.GetString(4);
-                            string prevSalt2 = reader.IsDBNull(5) ? null : reader.GetString(5);
+                            // Read the password hash and salt from each row
+                            string storedHash = reader.GetString(0);
+                            string storedSalt = reader.GetString(1);
 
-                            if (IsPasswordMatch(password, currentHash, currentSalt) ||
-                                IsPasswordMatch(password, prevHash1, prevSalt1) ||
-                                IsPasswordMatch(password, prevHash2, prevSalt2))
+                            // Check if the entered password matches the stored hash and salt
+                            if (IsPasswordMatch(password, storedHash, storedSalt))
                             {
                                 return true; // Password is in history
                             }

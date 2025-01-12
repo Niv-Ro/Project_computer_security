@@ -10,12 +10,12 @@ namespace prij_test_newagain
     public partial class Default : System.Web.UI.Page
     {
 
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void LogInEventMethod(object sender, EventArgs e)  
+        protected void LogInEventMethod(object sender, EventArgs e)
 
         {
             SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
@@ -24,10 +24,10 @@ namespace prij_test_newagain
             {
                 Session["uname"] = userNameTextBox.Text;
                 userNameTextBox.Text = "";
-                passWordTextBox.Text = "";            
+                passWordTextBox.Text = "";
                 Response.BufferOutput = true;
                 Response.Redirect("Logged_in.aspx", false);
-                
+
 
             }
             else
@@ -42,17 +42,18 @@ namespace prij_test_newagain
 
 
         protected void ForgotPasswordEventMethod(object sender, EventArgs e)
-            {
+        {
             Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("Forgot_password.aspx", false);
-            }
+        }
 
         protected void RegisterEventMethod(object sender, EventArgs e)
-            {
+        {
             Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("Registration.aspx", false);
-            }
         }
+    }
+
 }

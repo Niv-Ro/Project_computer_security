@@ -110,11 +110,14 @@ namespace prij_test_newagain
             {
                 conn.Open();
 
-                string queryStr = "INSERT INTO webapp.new_tableuserregistration (firstname, lastname, username, password, email, password_hash, salt) " +
+                string queryStr1 = "INSERT INTO webapp.new_tableuserregistration (firstname, lastname, username, password, email, password_hash, salt) " +
                                   "VALUES (@FirstName, @LastName, @UserName, @Password, @Email, @password_Hash, @salt)";
+                                  
 
+                string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
+                           "VALUES (@Email, @password_Hash, @salt)";
 
-                using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn))
+                using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr1, conn))
                 {
 
                     // Use parameters to securely add user input
@@ -129,10 +132,16 @@ namespace prij_test_newagain
                     
                     
                     // Execute the command
-                    cmd.ExecuteNonQuery();
-                    
-               
-                    
+                    cmd.ExecuteNonQuery();   
+                }
+                // Execute the second INSERT statement
+                using (var cmd2 = new MySql.Data.MySqlClient.MySqlCommand(queryStr2, conn))
+                {
+                    cmd2.Parameters.AddWithValue("@Email", emailTextBox.Text);
+                    cmd2.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
+                    cmd2.Parameters.AddWithValue("@salt", salt);
+
+                    cmd2.ExecuteNonQuery();
                 }
             }
         }
