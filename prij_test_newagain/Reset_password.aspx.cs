@@ -60,8 +60,8 @@ namespace prij_test_newagain
                     string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
                            "VALUES (@Email, @password_Hash, @salt)";
                    
-                    //try
-                    //{
+                    try
+                    {
                         using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(updateQuery, conn))
                         {
                             cmd.Parameters.AddWithValue("@Password", newPassword.Text);
@@ -83,13 +83,13 @@ namespace prij_test_newagain
                         string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
                         ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
 
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    Message.Text = "An error occurred while resetting your password. Please try again.";
-                    //    Message.ForeColor = System.Drawing.Color.Red;
-                    //    Message.Visible = true;
-                    //}
+                    }
+                    catch (Exception ex)
+                    {
+                        Message.Text = "An error occurred while resetting your password. Please try again.";
+                        Message.ForeColor = System.Drawing.Color.Red;
+                        Message.Visible = true;
+                    }
                 }
             }
 

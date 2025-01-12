@@ -150,13 +150,12 @@ public class SecurePasswordHandler
                 conn.Open();
 
                 // SQL to retrieve the current password hash and salts
-                string sql = @"SELECT Email, password_hash, salt FROM webapp.new_user_hash_salt_data WHERE Email = @Email ORDER BY Email DESC LIMIT @history_num";
+                string sql = @"SELECT password_hash, salt FROM webapp.new_user_hash_salt_data WHERE Email = @Email ORDER BY id DESC LIMIT @HistoryNum"; ;
 
                 using (var command = new MySql.Data.MySqlClient.MySqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@HistoryNum", history_num);
-
 
                     using (var reader = command.ExecuteReader())
                     {

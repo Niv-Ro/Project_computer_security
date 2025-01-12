@@ -108,7 +108,7 @@ namespace prij_test_newagain
                 // Configure and send the email with the verification code
                 using (MailMessage mail = new MailMessage())
                 {
-                    mail.From = new MailAddress("matansit04@gmail.com");
+                    mail.From = new MailAddress("hitwebbapp@gmail.com");
                     mail.To.Add(recipientEmail);
                     mail.Subject = "Password Reset";
                     mail.Body = "Your verification code is: " + hashedVerificationCode;
@@ -117,7 +117,7 @@ namespace prij_test_newagain
                     // Configure SMTP client
                     using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                     {
-                        smtp.Credentials = new NetworkCredential("matansit04@gmail.com", "jrmp jnxe dpdb cfve");
+                        smtp.Credentials = new NetworkCredential("hitwebbapp@gmail.com", "ezly jpqn whgq nvqo");
                         smtp.EnableSsl = true;
                         smtp.Send(mail); // Send the email
                         ShowMessage("Verification email sent successfully!", System.Drawing.Color.Green);
