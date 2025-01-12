@@ -33,7 +33,7 @@ namespace prij_test_newagain
         protected void Submit_New_Password_EventMethod(object sender, EventArgs e)
         {
             string userEmail = Session["userEmail"]?.ToString();
-            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text) && Check_email_password(userEmail,lastPassword.Text))
+            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text) && Check_email_password(userEmail, lastPassword.Text))
             {
                 resetPasswordPlaceHolder.Controls.Clear();
                 lastPassword.Visible = false;
@@ -46,34 +46,45 @@ namespace prij_test_newagain
                 Message.Visible = true;
 
                 resetPasswordPlaceHolder.Controls.Add(Message);
-
                 string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+                SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
+                var (hashedSaltPassword, salt) = SecurePassword.CreatePasswordHash(newPassword.Text);
+
                 using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
-                {            
-                    // Query string with parameters
-                    string queryStr = "UPDATE webapp.new_tableuserregistration SET password = @Password WHERE email = @Email";
+                {
 
-                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn))
+                    conn.Open();
+
+                    // Single update query that handles everything
+                    string updateQuery = @"UPDATE webapp.new_tableuserregistration SET prev_hash_2 = prev_hash_1,prev_salt_2 = prev_salt_1,prev_hash_1 = password_hash,prev_salt_1 = salt,password = @Password,password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
+
+                    try
                     {
-                        // Add parameters to the command
-                        cmd.Parameters.AddWithValue("@Password", newPassword.Text);
-                        cmd.Parameters.AddWithValue("@Email", userEmail);
+                        using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(updateQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Password", newPassword.Text);
+                            cmd.Parameters.AddWithValue("@Email", userEmail);
+                            cmd.Parameters.AddWithValue("@Password_Hash", hashedSaltPassword);
+                            cmd.Parameters.AddWithValue("@Salt", salt);
+                            cmd.ExecuteNonQuery();
+                        }
 
-                        // Open the connection
-                        conn.Open();
 
-                        // Execute the query
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        Console.WriteLine($"{rowsAffected} row(s) updated successfully.");
+                        string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
+                        ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Message.Text = "An error occurred while resetting your password. Please try again.";
+                        Message.ForeColor = System.Drawing.Color.Red;
+                        Message.Visible = true;
                     }
                 }
-
-
-                string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
-                ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
             }
 
         }
+
 
         private bool ValidatePassword(string password)
         {
@@ -128,6 +139,16 @@ namespace prij_test_newagain
                     {
                         if (password.IndexOf(word, StringComparison.OrdinalIgnoreCase) >= 0)
                             validationErrors.Add("Password contains a common word (e.g., 'password', '123456'). Please choose a stronger password.");
+                    }
+                }
+                else if (rule.Contains("Password History"))
+                {
+                    String userEmail = (string)(Session["userEmail"]);
+                    // Check if the password matches any of the last 3 passwords
+                    SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
+                    if (SecurePassword.IsPasswordInHistory(userEmail, password))
+                    {
+                        validationErrors.Add("Password cannot be one of your last 3 passwords.");
                     }
                 }
                 else

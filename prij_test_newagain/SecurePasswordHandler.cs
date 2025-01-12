@@ -139,7 +139,73 @@ public class SecurePasswordHandler
         }
     }
 
+    public bool IsPasswordInHistory(string email, string password)
+    {
+        string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
 
+        using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
+        {
+            try
+            {
+                conn.Open();
+
+                // SQL to retrieve the current password hash and salts
+                string sql = @"SELECT password_hash, salt, prev_hash_1, prev_salt_1, prev_hash_2, prev_salt_2 
+                           FROM webapp.new_tableuserregistration 
+                           WHERE email = @Email";
+
+                using (var command = new MySql.Data.MySqlClient.MySqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string currentHash = reader.IsDBNull(0) ? null : reader.GetString(0);
+                            string currentSalt = reader.IsDBNull(1) ? null : reader.GetString(1);
+                            string prevHash1 = reader.IsDBNull(2) ? null : reader.GetString(2);
+                            string prevSalt1 = reader.IsDBNull(3) ? null : reader.GetString(3);
+                            string prevHash2 = reader.IsDBNull(4) ? null : reader.GetString(4);
+                            string prevSalt2 = reader.IsDBNull(5) ? null : reader.GetString(5);
+
+                            if (IsPasswordMatch(password, currentHash, currentSalt) ||
+                                IsPasswordMatch(password, prevHash1, prevSalt1) ||
+                                IsPasswordMatch(password, prevHash2, prevSalt2))
+                            {
+                                return true; // Password is in history
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        return false; // No match found 
+    }
+
+    private bool IsPasswordMatch(string password, string storedHash, string storedSalt)
+    {
+        if (string.IsNullOrEmpty(storedHash) || string.IsNullOrEmpty(storedSalt))
+        {
+            return false;
+        }
+
+        // Convert the stored salt from Base64 to byte array
+        byte[] saltBytes = Convert.FromBase64String(storedSalt);
+
+        // Hash the entered password with the stored salt
+        byte[] hashBytes = HashPassword(password, saltBytes);
+        string hashedInput = Convert.ToBase64String(hashBytes);
+
+        // Compare the entered password hash with the stored hash
+        return storedHash.Equals(hashedInput);
+    }
 }
+
+
 
 
