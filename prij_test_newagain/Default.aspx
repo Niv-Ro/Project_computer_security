@@ -14,7 +14,7 @@
             <div style =" width:500px; height:500px; margin-top:100px;margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
                  <div style="position:relative;top:125px">
                      <h3 style="font-size:30px;color:#32323D">Login</h3>                     
-                        <asp:TextBox ID="userNameTextBox" runat="server" placeholder="Enter user name here" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />
+                        <asp:TextBox ID="userEmailTextBox" runat="server" placeholder="Enter user email here" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />
                         <br /><br/>
                          <asp:TextBox ID="passWordTextBox" runat="server" placeholder="Enter password here" Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px;font-family:verdana; border-color:#32323D" TextMode="Password" />                         
                          <br /><br/>

@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reset_password.aspx.cs" Inherits="prij_test_newagain.Reset_password" %>
-
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Change_password.aspx.cs" Inherits="prij_test_newagain.Change_password" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -11,10 +10,12 @@
 
         <div style="width:500px; height:460px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
             <div style="position:relative; top:125px">
-                <h3 style="font-size:30px;color:#32323D">Reset Password</h3>  
+                <h3 style="font-size:30px;color:#32323D">Change Password</h3>  
                 <asp:PlaceHolder ID="resetPasswordPlaceHolder" runat="server">
-                  
-                     
+                    <asp:TextBox ID="lastPassword" runat="server" placeholder="Enter your password" 
+                                 Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" 
+                                 TextMode="Password" />
+                    <br /><br/>   
                     <asp:TextBox ID="newPassword" runat="server" placeholder="Enter your new password" 
                                  Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" 
                                  TextMode="Password" />

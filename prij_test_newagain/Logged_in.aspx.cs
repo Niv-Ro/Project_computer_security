@@ -32,5 +32,15 @@ namespace prij_test_newagain
             Response.BufferOutput = true;
             Response.Redirect("Default.aspx",false);
         }
+
+        protected void ChangePasswordMethod(object sender, EventArgs e)
+        {
+            Session["uname"] = null;
+            Session.Abandon();
+            Response.BufferOutput = true;
+            Response.Redirect("Change_Password.aspx", false);
+        }
+
+
     }
 }

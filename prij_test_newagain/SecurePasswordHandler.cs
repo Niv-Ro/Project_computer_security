@@ -70,7 +70,7 @@ public class SecurePasswordHandler
 
 
 
-   public bool VerifyHashPassword(string username, string password)
+   public bool VerifyHashPassword(string userEmail, string password)
     {
         // Retrieve connection string from web.config
         string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
@@ -82,11 +82,11 @@ public class SecurePasswordHandler
                 conn.Open();
 
                 // SQL to retrieve password hash and salt for the given username
-                string sql = "SELECT password_hash, salt FROM new_tableuserregistration WHERE username = @username";
+                string sql = "SELECT password_hash, salt FROM new_tableuserregistration WHERE email = @useremail";
 
                 using (var command = new MySqlCommand(sql, conn))
                 {
-                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@useremail", userEmail);
 
                     // Execute the query and check if user exists
                     using (var reader = command.ExecuteReader())
@@ -133,7 +133,7 @@ public class SecurePasswordHandler
             catch (Exception ex)
             {
                 // Log exceptions for debugging
-                Console.WriteLine($"Error during password verification for user {username}: {ex.Message}");
+                Console.WriteLine($"Error during password verification for user {userEmail}: {ex.Message}");
                 return false;
             }
         }

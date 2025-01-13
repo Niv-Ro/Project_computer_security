@@ -24,13 +24,13 @@ namespace prij_test_newagain
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// userNameTextBox control.
+        /// userEmailTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox userEmailTextBox;
 
         /// <summary>
         /// passWordTextBox control.
