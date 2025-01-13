@@ -666,3 +666,27 @@ Unrecognized Rule: Password Validation Rules - 1/13/2025 12:24:50 AM
 Unrecognized Rule:  - 1/13/2025 12:24:50 AM
 Unrecognized Rule:  - 1/13/2025 12:24:50 AM
 Unrecognized Rule:  - 1/13/2025 12:24:50 AM
+Unrecognized Rule:  - 13/01/2025 15:33:39
+Unrecognized Rule: Password Validation Rules - 13/01/2025 15:33:39
+Unrecognized Rule:  - 13/01/2025 15:33:39
+Unrecognized Rule:  - 13/01/2025 15:33:39
+Unrecognized Rule:  - 13/01/2025 15:33:39
+Unrecognized Rule:  - 13/01/2025 15:34:39
+Unrecognized Rule: Password Validation Rules - 13/01/2025 15:34:39
+Unrecognized Rule:  - 13/01/2025 15:34:39
+Unrecognized Rule:  - 13/01/2025 15:34:39
+Unrecognized Rule:  - 13/01/2025 15:34:39
+Unrecognized Rule:  - 13/01/2025 15:39:49
+Unrecognized Rule: Password Validation Rules - 13/01/2025 15:39:49
+Unrecognized Rule:  - 13/01/2025 15:39:49
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 13/01/2025 15:39:49
+Unrecognized Rule:  - 13/01/2025 15:39:49
+Unrecognized Rule:  - 13/01/2025 15:39:49
+Unrecognized Rule:  - 13/01/2025 15:40:58
+Unrecognized Rule: Password Validation Rules - 13/01/2025 15:40:58
+Unrecognized Rule:  - 13/01/2025 15:40:58
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 13/01/2025 15:40:58
+Unrecognized Rule:  - 13/01/2025 15:40:58
+Unrecognized Rule:  - 13/01/2025 15:40:58
+Unrecognized Rule:  - 13/01/2025 15:42:21
+Unrecognized Rule: Password Validation Rules - 13/01/2025 15:42:27

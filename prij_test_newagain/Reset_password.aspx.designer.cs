@@ -33,15 +33,6 @@ namespace prij_test_newagain
         protected global::System.Web.UI.WebControls.PlaceHolder resetPasswordPlaceHolder;
 
         /// <summary>
-        /// lastPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastPassword;
-
-        /// <summary>
         /// newPassword control.
         /// </summary>
         /// <remarks>

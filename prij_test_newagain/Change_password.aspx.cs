@@ -1,21 +1,26 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Xml.Linq;
+
 
 
 
 
 namespace prij_test_newagain
 {
-    public partial class Reset_password : System.Web.UI.Page
+    public partial class Change_password : System.Web.UI.Page
+
     {
+        protected System.Web.UI.WebControls.TextBox lastPassword;
+        protected System.Web.UI.WebControls.TextBox newPassword;
+        protected System.Web.UI.WebControls.TextBox newPasswordAgain;
+        protected System.Web.UI.WebControls.Button submitPassword;
+        protected System.Web.UI.WebControls.Label Message;
+        protected System.Web.UI.WebControls.PlaceHolder resetPasswordPlaceHolder;
+
         private List<string> validationErrors = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,10 +37,12 @@ namespace prij_test_newagain
 
         protected void Submit_New_Password_EventMethod(object sender, EventArgs e)
         {
-            string userEmail = Session["userEmail"]?.ToString();
-            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text))
+            string userEmail = Session["uname"]?.ToString();//!!!!!!!!need to change the session and usernameBox to email! or username to unique!
+
+            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text) && Check_email_password(userEmail, lastPassword.Text))
             {
                 resetPasswordPlaceHolder.Controls.Clear();
+                lastPassword.Visible = false;
                 newPassword.Visible = false;
                 newPasswordAgain.Visible = false;
                 submitPassword.Visible = false;
@@ -56,39 +63,31 @@ namespace prij_test_newagain
 
                     // Single update query that handles everything
                     string updateQuery = @"UPDATE webapp.new_tableuserregistration SET password = @Password,password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
-                    //string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
-                    //       "VALUES (@Email, @password_Hash, @salt)";
-                   
-                    try
+                    
+
+                    //try
+                    //{
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(updateQuery, conn))
                     {
-                        using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(updateQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@Password", newPassword.Text);
-                            cmd.Parameters.AddWithValue("@Email", userEmail);
-                            cmd.Parameters.AddWithValue("@Password_Hash", hashedSaltPassword);
-                            cmd.Parameters.AddWithValue("@Salt", salt);
-                            cmd.ExecuteNonQuery();
-                        }
-                        //using (var cmd2 = new MySql.Data.MySqlClient.MySqlCommand(queryStr2, conn))
-                        //{
-                        //    cmd2.Parameters.AddWithValue("@Email", userEmail);
-                        //    cmd2.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
-                        //    cmd2.Parameters.AddWithValue("@salt", salt);
-
-                        //    cmd2.ExecuteNonQuery();
-                        //}
-
-
-                        string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
-                        ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
-
+                        cmd.Parameters.AddWithValue("@Password", newPassword.Text);
+                        cmd.Parameters.AddWithValue("@Email", userEmail);
+                        cmd.Parameters.AddWithValue("@Password_Hash", hashedSaltPassword);
+                        cmd.Parameters.AddWithValue("@Salt", salt);
+                        cmd.ExecuteNonQuery();
                     }
-                    catch (Exception ex)
-                    {
-                        Message.Text = "An error occurred while resetting your password. Please try again.";
-                        Message.ForeColor = System.Drawing.Color.Red;
-                        Message.Visible = true;
-                    }
+                  
+
+
+                    string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
+                    ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
+
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    Message.Text = "An error occurred while resetting your password. Please try again.";
+                    //    Message.ForeColor = System.Drawing.Color.Red;
+                    //    Message.Visible = true;
+                    //}
                 }
             }
 
@@ -150,23 +149,7 @@ namespace prij_test_newagain
                             validationErrors.Add("Password contains a common word (e.g., 'password', '123456'). Please choose a stronger password.");
                     }
                 }
-                //else if (rule.Contains("Password History"))
-                //{
-                //    int History_num = ExtractNumber(rule);
-
-                //    String userEmail = (string)(Session["userEmail"]);
-                //    // Check if the password matches any of the last 3 passwords
-                //    SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
-                //    if (SecurePassword.IsPasswordInHistory(userEmail, password, History_num))
-                //    {
-                //        validationErrors.Add("Password cannot be one of your last 3 passwords.");
-                //    }
-                //}
-                //else
-                //{
-                //    // Handle unknown rules (log or skip)
-                //    LogUnrecognizedRule(rule);
-                //}
+              
             }
 
             // If any errors were found, return false and display them

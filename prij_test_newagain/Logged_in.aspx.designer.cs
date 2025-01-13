@@ -24,6 +24,15 @@ namespace prij_test_newagain
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// userlabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userlabel;
+
+        /// <summary>
         /// logOutButton control.
         /// </summary>
         /// <remarks>
@@ -33,12 +42,12 @@ namespace prij_test_newagain
         protected global::System.Web.UI.WebControls.Button logOutButton;
 
         /// <summary>
-        /// userlabel control.
+        /// ChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userlabel;
+        protected global::System.Web.UI.WebControls.Button ChangePassword;
     }
 }

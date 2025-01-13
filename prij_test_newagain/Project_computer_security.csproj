@@ -119,6 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Change_password.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Forgot_password.aspx" />
     <Content Include="Logged_in.aspx" />
@@ -127,6 +128,10 @@
     <Content Include="Registration.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Change_password.aspx.cs">
+      <DependentUpon>Change_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
