@@ -30,7 +30,10 @@
                 <asp:Button ID="back_To_Login" Text="Log In" runat="server" OnClick="BackToLoginEventMethod" 
                             Style="font-size:10px; border:unset; background-color:white; color:#32323D" />
                 <br />
-                <asp:Label ID="Message" runat="server" />
+                <asp:Label ID="Message" Text="" runat="server" />
+                <br/>
+                <asp:Label ID="errorLabel" Text="" runat="server" Visible="false" 
+                    Style="font-size:10px; font-family:verdana; color:red;" />
             </div>
         </div>
     </form>

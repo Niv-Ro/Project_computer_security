@@ -762,3 +762,108 @@ Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 faile
 Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:10:19
 Unrecognized Rule:  - 17/01/2025 17:10:19
 Unrecognized Rule:  - 17/01/2025 17:10:19
+Unrecognized Rule:  - 17/01/2025 17:30:01
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:30:01
+Unrecognized Rule:  - 17/01/2025 17:30:01
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:30:01
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:30:01
+Unrecognized Rule:  - 17/01/2025 17:30:01
+Unrecognized Rule:  - 17/01/2025 17:30:01
+Unrecognized Rule:  - 17/01/2025 17:31:23
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:31:23
+Unrecognized Rule:  - 17/01/2025 17:31:23
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:31:23
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:31:23
+Unrecognized Rule:  - 17/01/2025 17:31:23
+Unrecognized Rule:  - 17/01/2025 17:31:23
+Unrecognized Rule:  - 17/01/2025 17:32:25
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:32:25
+Unrecognized Rule:  - 17/01/2025 17:32:25
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:32:25
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:32:25
+Unrecognized Rule:  - 17/01/2025 17:32:25
+Unrecognized Rule:  - 17/01/2025 17:32:25
+Unrecognized Rule:  - 17/01/2025 17:44:49
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:44:49
+Unrecognized Rule:  - 17/01/2025 17:44:49
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:44:49
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:44:49
+Unrecognized Rule:  - 17/01/2025 17:44:49
+Unrecognized Rule:  - 17/01/2025 17:44:49
+Unrecognized Rule:  - 17/01/2025 17:49:55
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:49:55
+Unrecognized Rule:  - 17/01/2025 17:49:55
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:49:55
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:49:55
+Unrecognized Rule:  - 17/01/2025 17:49:55
+Unrecognized Rule:  - 17/01/2025 17:49:55
+Unrecognized Rule:  - 17/01/2025 17:50:13
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:50:13
+Unrecognized Rule:  - 17/01/2025 17:50:13
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:50:13
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:50:13
+Unrecognized Rule:  - 17/01/2025 17:50:13
+Unrecognized Rule:  - 17/01/2025 17:50:13
+Unrecognized Rule:  - 17/01/2025 17:54:49
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:54:49
+Unrecognized Rule:  - 17/01/2025 17:54:49
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:54:49
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:54:49
+Unrecognized Rule:  - 17/01/2025 17:54:49
+Unrecognized Rule:  - 17/01/2025 17:54:49
+Unrecognized Rule:  - 17/01/2025 17:55:02
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:55:02
+Unrecognized Rule:  - 17/01/2025 17:55:02
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:55:02
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:55:02
+Unrecognized Rule:  - 17/01/2025 17:55:02
+Unrecognized Rule:  - 17/01/2025 17:55:02
+Unrecognized Rule:  - 17/01/2025 17:55:24
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:55:24
+Unrecognized Rule:  - 17/01/2025 17:55:24
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:55:24
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:55:24
+Unrecognized Rule:  - 17/01/2025 17:55:24
+Unrecognized Rule:  - 17/01/2025 17:55:24
+Unrecognized Rule:  - 17/01/2025 17:55:31
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:55:31
+Unrecognized Rule:  - 17/01/2025 17:55:31
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:55:31
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:55:31
+Unrecognized Rule:  - 17/01/2025 17:55:31
+Unrecognized Rule:  - 17/01/2025 17:55:31
+Unrecognized Rule:  - 17/01/2025 17:55:41
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:55:41
+Unrecognized Rule:  - 17/01/2025 17:55:41
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:55:41
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:55:41
+Unrecognized Rule:  - 17/01/2025 17:55:41
+Unrecognized Rule:  - 17/01/2025 17:55:41
+Unrecognized Rule:  - 17/01/2025 17:55:45
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:55:45
+Unrecognized Rule:  - 17/01/2025 17:55:45
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:55:45
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:55:45
+Unrecognized Rule:  - 17/01/2025 17:55:45
+Unrecognized Rule:  - 17/01/2025 17:55:45
+Unrecognized Rule:  - 17/01/2025 17:55:56
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:55:56
+Unrecognized Rule:  - 17/01/2025 17:55:56
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:55:56
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:55:56
+Unrecognized Rule:  - 17/01/2025 17:55:56
+Unrecognized Rule:  - 17/01/2025 17:55:56
+Unrecognized Rule:  - 17/01/2025 17:58:41
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:58:41
+Unrecognized Rule:  - 17/01/2025 17:58:41
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:58:41
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:58:41
+Unrecognized Rule:  - 17/01/2025 17:58:41
+Unrecognized Rule:  - 17/01/2025 17:58:41
+Unrecognized Rule:  - 17/01/2025 17:58:59
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:58:59
+Unrecognized Rule:  - 17/01/2025 17:58:59
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:58:59
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:58:59
+Unrecognized Rule:  - 17/01/2025 17:58:59
+Unrecognized Rule:  - 17/01/2025 17:58:59
