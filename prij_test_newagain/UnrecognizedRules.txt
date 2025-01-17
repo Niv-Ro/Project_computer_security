@@ -738,3 +738,27 @@ Unrecognized Rule:  - 17/01/2025 14:41:34
 Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 17/01/2025 14:41:34
 Unrecognized Rule:  - 17/01/2025 14:41:34
 Unrecognized Rule:  - 17/01/2025 14:41:34
+Unrecognized Rule:  - 17/01/2025 16:56:45
+Unrecognized Rule: Password Validation Rules - 17/01/2025 16:56:45
+Unrecognized Rule:  - 17/01/2025 16:56:45
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 17/01/2025 16:56:45
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 16:56:45
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 16:56:45
+Unrecognized Rule:  - 17/01/2025 16:56:45
+Unrecognized Rule:  - 17/01/2025 16:56:45
+Unrecognized Rule:  - 17/01/2025 17:10:05
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:10:05
+Unrecognized Rule:  - 17/01/2025 17:10:05
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 17/01/2025 17:10:05
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:10:05
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:10:05
+Unrecognized Rule:  - 17/01/2025 17:10:05
+Unrecognized Rule:  - 17/01/2025 17:10:05
+Unrecognized Rule:  - 17/01/2025 17:10:19
+Unrecognized Rule: Password Validation Rules - 17/01/2025 17:10:19
+Unrecognized Rule:  - 17/01/2025 17:10:19
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 17/01/2025 17:10:19
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 17/01/2025 17:10:19
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:10:19
+Unrecognized Rule:  - 17/01/2025 17:10:19
+Unrecognized Rule:  - 17/01/2025 17:10:19

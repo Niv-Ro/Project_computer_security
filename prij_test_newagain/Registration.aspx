@@ -4,92 +4,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Registration</title>
-    <style>
-        body {
-            background-color: #f4f4f9;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .form-container {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .form-container h3 {
-            font-size: 24px;
-            color: #333333;
-            margin-bottom: 20px;
-        }
-
-        .form-container input, .form-container button {
-            width: calc(100% - 20px);
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #cccccc;
-            font-size: 14px;
-        }
-
-        .form-container input:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
-
-        .form-container button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button:hover {
-            background-color: #0056b3;
-        }
-
-        .form-container .link-button {
-            background: none;
-            border: none;
-            color: #007BFF;
-            cursor: pointer;
-            text-decoration: underline;
-            font-size: 12px;
-        }
-
-        .form-container .link-button:hover {
-            color: #0056b3;
-        }
-
-        .form-container .error-label {
-            color: red;
-            font-size: 12px;
-            margin-top: 10px;
-        }
-    </style>
 </head>
-<body>
+<body style="background-color:#32323D; font-family:verdana">
     <form id="form1" runat="server">
-        <div class="form-container">
-            <h3>Register</h3>
-
-            <asp:TextBox ID="firstNameTextBox" runat="server" placeholder="Enter your name"></asp:TextBox>
-            <asp:TextBox ID="lastNameTextBox" runat="server" placeholder="Enter your last name"></asp:TextBox>
-            <asp:TextBox ID="userNameTextBox" runat="server" placeholder="Enter new username"></asp:TextBox>
-            <asp:TextBox ID="passWordTextBox" runat="server" placeholder="Enter new password" TextMode="Password"></asp:TextBox>
-            <asp:TextBox ID="rePasswordTextBox" runat="server" placeholder="Re-enter password" TextMode="Password"></asp:TextBox>
-            <asp:TextBox ID="emailTextBox" runat="server" placeholder="Enter your email" TextMode="SingleLine"></asp:TextBox>
-
-            <asp:Button ID="registerButton" Text="Submit" runat="server" OnClick="RegisterEventMethod"></asp:Button>
-            <asp:Button ID="logInButton" Text="Log In" runat="server" OnClick="BackToLogInEventMethod" CssClass="link-button"></asp:Button>
-
-            <asp:Label ID="errorLabel" Text="" runat="server" Visible="false" CssClass="error-label"></asp:Label>
+        <div style="width:500px; height:560px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
+            <div style="position:relative; top:56px; left:0px;">
+                <h3 style="font-size:30px; color:#32323D">Register</h3>
+                
+                <asp:TextBox ID="firstNameTextBox" runat="server" placeholder="Enter your name" 
+                    Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />
+                <br /><br />
+                
+                <asp:TextBox ID="lastNameTextBox" runat="server" placeholder="Enter your last name" 
+                    Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />
+                <br /><br />
+                
+                <asp:TextBox ID="userNameTextBox" runat="server" placeholder="Enter new username" 
+                    Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" />
+                <br /><br />
+                
+                <asp:TextBox ID="passWordTextBox" runat="server" placeholder="Enter new password" 
+                    Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" TextMode="Password" />
+                <br /><br />
+                
+                <asp:TextBox ID="rePasswordTextBox" runat="server" placeholder="Re-enter password" 
+                    Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" TextMode="Password" />
+                <br /><br />
+                
+                <asp:TextBox ID="emailTextBox" runat="server" placeholder="Enter your email" 
+                    Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 5px; font-family:verdana; border-color:#32323D" TextMode="SingleLine" />
+                <br /><br />
+                
+                <asp:Button ID="registerButton" Text="Submit" runat="server" OnClick="RegisterEventMethod" 
+                    Style="border: 1px solid #c8c8c8; border-radius: 10px; padding: 10px; width:125px; background-color:#32323D; color:white; font-family:verdana" />
+                <br />
+                
+                <asp:Button ID="logInButton" Text="Log In" runat="server" OnClick="BackToLogInEventMethod" 
+                    Style="font-size:11px; border:unset; background-color:white; color:#32323D;" />
+                <br />
+                
+                <asp:Label ID="errorLabel" Text="" runat="server" Visible="false" 
+                    Style="font-size:10px; font-family:verdana; color:red;" />
+            </div>
         </div>
     </form>
 </body>

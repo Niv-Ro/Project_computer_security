@@ -56,8 +56,8 @@ namespace prij_test_newagain
 
                     // Single update query that handles everything
                     string updateQuery = @"UPDATE webapp.new_tableuserregistration SET password = @Password,password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
-                    //string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
-                    //       "VALUES (@Email, @password_Hash, @salt)";
+                    string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
+                           "VALUES (@Email, @password_Hash, @salt)";
                    
                     try
                     {
@@ -69,14 +69,14 @@ namespace prij_test_newagain
                             cmd.Parameters.AddWithValue("@Salt", salt);
                             cmd.ExecuteNonQuery();
                         }
-                        //using (var cmd2 = new MySql.Data.MySqlClient.MySqlCommand(queryStr2, conn))
-                        //{
-                        //    cmd2.Parameters.AddWithValue("@Email", userEmail);
-                        //    cmd2.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
-                        //    cmd2.Parameters.AddWithValue("@salt", salt);
+                        using (var cmd2 = new MySql.Data.MySqlClient.MySqlCommand(queryStr2, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@Email", userEmail);
+                            cmd2.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
+                            cmd2.Parameters.AddWithValue("@salt", salt);
 
-                        //    cmd2.ExecuteNonQuery();
-                        //}
+                            cmd2.ExecuteNonQuery();
+                        }
 
 
                         string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";

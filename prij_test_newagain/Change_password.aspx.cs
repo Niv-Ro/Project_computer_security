@@ -37,7 +37,7 @@ namespace prij_test_newagain
 
         protected void Submit_New_Password_EventMethod(object sender, EventArgs e)
         {
-            string userEmail = Session["uname"]?.ToString();//!!!!!!!!need to change the session and usernameBox to email! or username to unique!
+            string userEmail = Session["uname"]?.ToString();//!!!!!!!!need to change the session and usernameBox to email! or username to unique! DONE AHI
 
             if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text) && Check_email_password(userEmail, lastPassword.Text))
             {
