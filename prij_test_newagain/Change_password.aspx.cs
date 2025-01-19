@@ -37,9 +37,12 @@ namespace prij_test_newagain
 
         protected void Submit_New_Password_EventMethod(object sender, EventArgs e)
         {
-            string userEmail = Session["uname"]?.ToString();//!!!!!!!!need to change the session and usernameBox to email! or username to unique! DONE AHI
+            string passemail;
+            string userEmail;
 
-            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text) && Check_email_password(userEmail, lastPassword.Text))
+            passemail = (string)(Session["passemail"]);
+            userEmail = passemail;
+            if ((newPassword.Text == newPasswordAgain.Text) && ValidatePassword(newPassword.Text))
             {
                 resetPasswordPlaceHolder.Controls.Clear();
                 lastPassword.Visible = false;
@@ -63,10 +66,11 @@ namespace prij_test_newagain
 
                     // Single update query that handles everything
                     string updateQuery = @"UPDATE webapp.new_tableuserregistration SET password = @Password,password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
-                    
+                    string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
+                           "VALUES (@Email, @password_Hash, @salt)";
 
-                    //try
-                    //{
+                    try
+                    {
                     using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(updateQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@Password", newPassword.Text);
@@ -75,19 +79,27 @@ namespace prij_test_newagain
                         cmd.Parameters.AddWithValue("@Salt", salt);
                         cmd.ExecuteNonQuery();
                     }
-                  
+
+                    using (var cmd2 = new MySql.Data.MySqlClient.MySqlCommand(queryStr2, conn))
+                    {
+                        cmd2.Parameters.AddWithValue("@Email", userEmail);
+                        cmd2.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
+                        cmd2.Parameters.AddWithValue("@salt", salt);
+
+                        cmd2.ExecuteNonQuery();
+                    }
 
 
-                    string script = "setTimeout(function() { window.location.href = 'Default.aspx'; }, 2000);";
+                    string script = "setTimeout(function() { window.location.href = 'Logged_in.aspx'; }, 2000);";
                     ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
 
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    Message.Text = "An error occurred while resetting your password. Please try again.";
-                    //    Message.ForeColor = System.Drawing.Color.Red;
-                    //    Message.Visible = true;
-                    //}
+                    }
+                    catch (Exception ex)
+                    {
+                        Message.Text = "An error occurred while resetting your password. Please try again.";
+                        Message.ForeColor = System.Drawing.Color.Red;
+                        Message.Visible = true;
+                    }
                 }
             }
 

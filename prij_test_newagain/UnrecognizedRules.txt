@@ -867,3 +867,43 @@ Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 faile
 Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 17/01/2025 17:58:59
 Unrecognized Rule:  - 17/01/2025 17:58:59
 Unrecognized Rule:  - 17/01/2025 17:58:59
+Unrecognized Rule:  - 1/19/2025 12:09:24 PM
+Unrecognized Rule: Password Validation Rules - 1/19/2025 12:09:24 PM
+Unrecognized Rule:  - 1/19/2025 12:09:24 PM
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 1/19/2025 12:09:24 PM
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 1/19/2025 12:09:24 PM
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 1/19/2025 12:09:24 PM
+Unrecognized Rule:  - 1/19/2025 12:09:24 PM
+Unrecognized Rule:  - 1/19/2025 12:09:24 PM
+Unrecognized Rule:  - 1/19/2025 12:09:39 PM
+Unrecognized Rule: Password Validation Rules - 1/19/2025 12:09:39 PM
+Unrecognized Rule:  - 1/19/2025 12:09:39 PM
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 1/19/2025 12:09:39 PM
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 1/19/2025 12:09:39 PM
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 1/19/2025 12:09:39 PM
+Unrecognized Rule:  - 1/19/2025 12:09:39 PM
+Unrecognized Rule:  - 1/19/2025 12:09:39 PM
+Unrecognized Rule:  - 1/19/2025 12:09:54 PM
+Unrecognized Rule: Password Validation Rules - 1/19/2025 12:09:54 PM
+Unrecognized Rule:  - 1/19/2025 12:09:54 PM
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 1/19/2025 12:09:54 PM
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 1/19/2025 12:09:54 PM
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 1/19/2025 12:09:54 PM
+Unrecognized Rule:  - 1/19/2025 12:09:54 PM
+Unrecognized Rule:  - 1/19/2025 12:09:54 PM
+Unrecognized Rule:  - 1/19/2025 12:44:29 PM
+Unrecognized Rule: Password Validation Rules - 1/19/2025 12:44:29 PM
+Unrecognized Rule:  - 1/19/2025 12:44:29 PM
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 1/19/2025 12:44:29 PM
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 1/19/2025 12:44:29 PM
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 1/19/2025 12:44:29 PM
+Unrecognized Rule:  - 1/19/2025 12:44:29 PM
+Unrecognized Rule:  - 1/19/2025 12:44:29 PM
+Unrecognized Rule:  - 1/19/2025 12:44:40 PM
+Unrecognized Rule: Password Validation Rules - 1/19/2025 12:44:40 PM
+Unrecognized Rule:  - 1/19/2025 12:44:40 PM
+Unrecognized Rule: - Password History: Password history of 3 previous passwords cannot be defined in the reset. - 1/19/2025 12:44:40 PM
+Unrecognized Rule: - Allowed Failed Attempts: User will be blocked after 5 failed login attempts. - 1/19/2025 12:44:40 PM
+Unrecognized Rule: - Lockout Time: After blocking the user, the user will be in time-out for 15 minutes. - 1/19/2025 12:44:40 PM
+Unrecognized Rule:  - 1/19/2025 12:44:40 PM
+Unrecognized Rule:  - 1/19/2025 12:44:40 PM

@@ -109,6 +109,8 @@
                 <asp:Button ID="btnUpdateCustomer" Text="Update Customer" runat="server" />
                 <asp:Button ID="btnRemoveCustomer" Text="Remove Customer" runat="server" />
                 <asp:Button ID="btnViewCustomers" Text="View All Customers" runat="server" />
+                <asp:Button ID="btnChangePassword" Text="ChangePassword" runat="server" OnClick="ChangePasswordEventMethod" />
+
             </div>
 
             <table>

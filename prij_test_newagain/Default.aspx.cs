@@ -22,6 +22,7 @@ namespace prij_test_newagain
         protected void LogInEventMethod(object sender, EventArgs e)
         {
             string uname;
+            string uemail;
             SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
             MySqlConnection conn = null;
             string email = userEmailTextBox.Text;
@@ -102,7 +103,9 @@ namespace prij_test_newagain
                                     string firstName = !reader.IsDBNull(0) ? reader.GetString(0) : null;
                                     string lastName = !reader.IsDBNull(1) ? reader.GetString(1) : null;
                                     uname = firstName + " " + lastName;
+                                    uemail = userEmailTextBox.Text;
                                     Session["uname"] = uname;
+                                    Session["uemail"] = uemail;
                                     userEmailTextBox.Text = "";
                                     passWordTextBox.Text = "";
                                     Response.BufferOutput = true;
