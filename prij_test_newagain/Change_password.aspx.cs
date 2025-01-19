@@ -161,7 +161,24 @@ namespace prij_test_newagain
                             validationErrors.Add("Password contains a common word (e.g., 'password', '123456'). Please choose a stronger password.");
                     }
                 }
-              
+                else if (rule.Contains("Password History"))
+                {
+                    int History_num = ExtractNumber(rule);
+
+                    String userEmail = (string)(Session["userEmail"]);
+                    // Check if the password matches any of the last 3 passwords
+                    SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
+                    if (SecurePassword.IsPasswordInHistory(userEmail, password, History_num))
+                    {
+                        validationErrors.Add("Password cannot be one of your last 3 passwords.");
+                    }
+                }
+                else
+                {
+                    // Handle unknown rules (log or skip)
+                    LogUnrecognizedRule(rule);
+                }
+
             }
 
             // If any errors were found, return false and display them
