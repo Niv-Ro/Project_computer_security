@@ -7,7 +7,7 @@
 </head>
 <body style="background-color:#32323D; font-family:verdana">
     <form id="form1" runat="server">
-        <div style="width:500px; height:560px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
+        <div style="width:500px; height:580px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
             <div style="position:relative; top:56px; left:0px;">
                 <h3 style="font-size:30px; color:#32323D">Register</h3>
                 
