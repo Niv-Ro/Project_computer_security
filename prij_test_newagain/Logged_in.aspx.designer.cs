@@ -24,6 +24,15 @@ namespace prij_test_newagain
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// btnChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangePassword;
+
+        /// <summary>
         /// logOutButton control.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,157 @@ namespace prij_test_newagain
         protected global::System.Web.UI.WebControls.Label userlabel;
 
         /// <summary>
-        /// btnAddCustomer control.
+        /// CustomerGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCustomer;
+        protected global::System.Web.UI.WebControls.GridView CustomerGridView;
+
+        /// <summary>
+        /// txtAddCustomerID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddCustomerID;
+
+        /// <summary>
+        /// txtAddCustomerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddCustomerName;
+
+        /// <summary>
+        /// txtAddCustomerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddCustomerEmail;
+
+        /// <summary>
+        /// txtAddCustomerPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddCustomerPhone;
+
+        /// <summary>
+        /// txtAddCustomerAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddCustomerAddress;
+
+        /// <summary>
+        /// txtAddPackageType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddPackageType;
+
+        /// <summary>
+        /// txtAddPackagePrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddPackagePrice;
+
+        /// <summary>
+        /// btnSaveCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveCustomer;
+
+        /// <summary>
+        /// addMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label addMessage;
+
+        /// <summary>
+        /// txtUpdateCustomerID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateCustomerID;
+
+        /// <summary>
+        /// txtUpdateCustomerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateCustomerName;
+
+        /// <summary>
+        /// txtUpdateCustomerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateCustomerEmail;
+
+        /// <summary>
+        /// txtUpdateCustomerPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateCustomerPhone;
+
+        /// <summary>
+        /// txtUpdateCustomerAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateCustomerAddress;
+
+        /// <summary>
+        /// txtUpdatePackageType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdatePackageType;
+
+        /// <summary>
+        /// txtUpdatePackagePrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdatePackagePrice;
 
         /// <summary>
         /// btnUpdateCustomer control.
@@ -60,30 +213,39 @@ namespace prij_test_newagain
         protected global::System.Web.UI.WebControls.Button btnUpdateCustomer;
 
         /// <summary>
-        /// btnRemoveCustomer control.
+        /// updateMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoveCustomer;
+        protected global::System.Web.UI.WebControls.Label updateMessage;
 
         /// <summary>
-        /// btnViewCustomers control.
+        /// txtDeleteCustomerID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewCustomers;
+        protected global::System.Web.UI.WebControls.TextBox txtDeleteCustomerID;
 
         /// <summary>
-        /// btnChangePassword control.
+        /// btnDeleteCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChangePassword;
+        protected global::System.Web.UI.WebControls.Button btnDeleteCustomer;
+
+        /// <summary>
+        /// deleteMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label deleteMessage;
     }
 }

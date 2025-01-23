@@ -8,7 +8,7 @@
 
     <form id="form1" runat="server">
 
-        <div style="width:500px; height:460px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
+        <div style="width:500px; height:530px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
             <div style="position:relative; top:125px">
                 <h3 style="font-size:30px;color:#32323D">Change Password</h3>  
                 <asp:PlaceHolder ID="resetPasswordPlaceHolder" runat="server">
@@ -32,6 +32,9 @@
                             Style="font-size:10px; border:unset; background-color:white; color:#32323D" />
                 <br />
                 <asp:Label ID="Message" runat="server" />
+                 <br/>
+                <asp:Label ID="errorLabel" Text="" runat="server" Visible="false" 
+                    Style="font-size:10px; font-family:verdana; color:red;" />
             </div>
         </div>
     </form>

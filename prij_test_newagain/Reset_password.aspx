@@ -9,7 +9,7 @@
 
     <form id="form1" runat="server">
 
-        <div style="width:500px; height:460px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
+        <div style="width:500px; height:480px; margin-top:100px; margin:auto; background-color:#ffffff; text-align:center; border:medium; border-radius: 25px;">
             <div style="position:relative; top:125px">
                 <h3 style="font-size:30px;color:#32323D">Reset Password</h3>  
                 <asp:PlaceHolder ID="resetPasswordPlaceHolder" runat="server">
