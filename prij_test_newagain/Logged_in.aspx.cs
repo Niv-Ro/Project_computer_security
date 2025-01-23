@@ -130,14 +130,19 @@ namespace prij_test_newagain
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                addMessage.Text = "Error adding customer: " + ex.Message;
+                addMessage.Text = "Error adding customer, customer with this id is already exists";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "keepModalOpen",
                     "$('#addCustomerModal').modal('show');", true);
             }
         }
-        protected void UpdateCustomerEventMethod(object sender, EventArgs e)
+
+        //using System.Web;
+        //string input = "<script>alert('XSS');
+        //</script>";
+        //string encodedInput = HttpUtility.HtmlEncode(input);
+    protected void UpdateCustomerEventMethod(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUpdateCustomerID.Text) ||
                 string.IsNullOrWhiteSpace(txtUpdateCustomerName.Text) ||
@@ -189,9 +194,9 @@ namespace prij_test_newagain
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                updateMessage.Text = "Error updating customer: " + ex.Message;
+                updateMessage.Text = "Error updating customer";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "keepModalOpen",
                     "$('#updateCustomerModal').modal('show');", true);
             }
@@ -234,9 +239,9 @@ namespace prij_test_newagain
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                deleteMessage.Text = "Error deleting customer: " + ex.Message;
+                deleteMessage.Text = "Error deleting customer";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "keepModalOpen",
                     "$('#deleteCustomerModal').modal('show');", true);
             }
