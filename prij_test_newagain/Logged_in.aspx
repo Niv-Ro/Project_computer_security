@@ -145,18 +145,30 @@
                 <tbody>
                 </tbody>
             </table>-->
-            <asp:GridView ID="CustomerGridView" runat="server" CssClass="table table-bordered" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="customer_ID" HeaderText="Customer ID" />
-                    <asp:BoundField DataField="name" HeaderText="Name" />
-                    <asp:BoundField DataField="email" HeaderText="Email" />
-                    <asp:BoundField DataField="phone" HeaderText="Phone" />
-                    <asp:BoundField DataField="address" HeaderText="Address" />
-                    <asp:BoundField DataField="package_type" HeaderText="Package Type" />
-                    <asp:BoundField DataField="package_price" HeaderText="Package Price" />
-                </Columns>
-            </asp:GridView>
-        </div>
+
+
+    <!-- 
+    Security-enhanced GridView that implements multiple layers of XSS protection:
+    - Explicit column definitions prevent unauthorized data exposure
+    - HtmlEncode attributes ensure proper content encoding
+    - RowDataBound event provides additional security checks
+     -->
+<asp:GridView ID="CustomerGridView" runat="server" 
+    AutoGenerateColumns="False"                     
+    OnRowDataBound="CustomerGridView_RowDataBound"  
+    CssClass="table table-striped"
+    HtmlEncode="True"                              
+    EnableViewState="True">                         
+    <Columns>
+        <asp:BoundField DataField="customer_ID" HeaderText="Customer ID" HtmlEncode="True" />
+        <asp:BoundField DataField="name" HeaderText="Name" HtmlEncode="True" />
+        <asp:BoundField DataField="email" HeaderText="Email" HtmlEncode="True" />
+        <asp:BoundField DataField="phone" HeaderText="Phone" HtmlEncode="True" />
+        <asp:BoundField DataField="address" HeaderText="Address" HtmlEncode="True" />
+        <asp:BoundField DataField="package_type" HeaderText="Package Type" HtmlEncode="True" />
+        <asp:BoundField DataField="package_price" HeaderText="Package Price" HtmlEncode="True" />
+    </Columns>
+</asp:GridView>
 
         <!-- Add Customer Modal -->
         <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="addCustomerModalLabel" aria-hidden="true">

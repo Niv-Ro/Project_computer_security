@@ -169,6 +169,7 @@
       <DependentUpon>Reset_password.aspx</DependentUpon>
     </Compile>
     <Compile Include="SecurePasswordHandler.cs" />
+    <Compile Include="SecurityUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
