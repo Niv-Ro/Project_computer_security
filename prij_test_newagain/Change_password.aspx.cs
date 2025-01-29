@@ -44,6 +44,16 @@ namespace prij_test_newagain
 
             passemail = (string)(Session["passemail"]);
             userEmail = passemail;
+
+
+            if (!SecurePassword.VerifyHashPassword(userEmail, lastPassword.Text))
+            {
+                errorLabel.Text = "Current password is incorrect";
+                errorLabel.Visible = true;
+                errorLabel.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
             if ((newPassword.Text == newPasswordAgain.Text) && SecurePassword.ValidatePassword(newPassword.Text,ref validationErrors, userEmail))
             {
                 resetPasswordPlaceHolder.Controls.Clear();

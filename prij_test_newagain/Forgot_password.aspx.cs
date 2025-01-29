@@ -105,7 +105,7 @@ namespace prij_test_newagain
                 string hashedVerificationCode = HashSHA1(verification.ToString());
 
 
-                // Configure and send the email with the verification code
+                // Configure and send the email with the hashedVerificationCode code
                 using (MailMessage mail = new MailMessage())
                 {
                     mail.From = new MailAddress("hitwebbapp@gmail.com");
