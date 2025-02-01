@@ -47,7 +47,7 @@ namespace prij_test_newagain
         protected void Verify_EventMethod(object sender, EventArgs e)
         {
             //string hashedInputCode = HashSHA1(verifyTextBox.Text);
-            
+
             // Compare the entered code with the stored hashed verification code
             if (verifyTextBox.Text == HashSHA1(verification.ToString()))
             {
@@ -60,7 +60,7 @@ namespace prij_test_newagain
 
                 //Message.Text = "Code is incorrect"; // Show an error message if code is wrong
                 Message.ForeColor = System.Drawing.Color.Red;
-                }
+            }
         }
 
         protected void Forgot_EventMethod(object sender, EventArgs e)
@@ -123,10 +123,10 @@ namespace prij_test_newagain
                         ShowMessage("Verification email sent successfully!", System.Drawing.Color.Green);
                         //Message.Text = "Verification email sent successfully!";
                         Message.ForeColor = System.Drawing.Color.Green;
-                        }
+                    }
                 }
 
-                
+
                 ButtonPlaceHolder.Controls.Clear(); // Remove all controls from the PlaceHolder
                 TextBoxPlaceHolder.Controls.Clear();
                 // Dynamically add the verifyButton in the same place
@@ -160,10 +160,10 @@ namespace prij_test_newagain
                 {
                     sb.Append(b.ToString("x2"));
                 }
-                 
+
                 return sb.ToString();
             }
-            
+
         }
         // To store the timeout ID and cancel the previous timeout if needed
         private static int timeoutId = -1;
@@ -195,5 +195,3 @@ namespace prij_test_newagain
 
     }
 }
-
-

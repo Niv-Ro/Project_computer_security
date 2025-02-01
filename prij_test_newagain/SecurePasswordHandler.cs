@@ -17,7 +17,7 @@ public class SecurePasswordHandler
     // Constants for password hashing
     private const int SALT_SIZE = 4;
     private const int HASH_SIZE = 16;
-    private const int ITERATIONS = 10000;// more iteretions- more difficult to bridge
+    private const int ITERATIONS = 10000;// more iteretions- more difficult to bridg e- protection from brute force attack
 
     // Database connection string - replace with your actual connection details
     private string CONNECTION_STRING = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();

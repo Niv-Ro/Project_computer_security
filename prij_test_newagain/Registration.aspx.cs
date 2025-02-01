@@ -110,8 +110,8 @@ namespace prij_test_newagain
             {
                 conn.Open();
 
-                string queryStr1 = "INSERT INTO webapp.new_tableuserregistration (firstname, lastname, username, password, email, password_hash, salt) " +
-                                  "VALUES (@FirstName, @LastName, @UserName, @Password, @Email, @password_Hash, @salt)";
+                string queryStr1 = "INSERT INTO webapp.new_tableuserregistration (firstname, lastname, username, email, password_hash, salt) " +
+                                  "VALUES (@FirstName, @LastName, @UserName, @Email, @password_Hash, @salt)";
                                   
 
                 string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
@@ -124,7 +124,7 @@ namespace prij_test_newagain
                     cmd.Parameters.AddWithValue("@FirstName", firstNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@LastName", lastNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@UserName", userNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@Password", passWordTextBox.Text); // Note: Consider hashing the password before storing it
+                    //cmd.Parameters.AddWithValue("@Password", passWordTextBox.Text); // Note: Consider hashing the password before storing it
                     cmd.Parameters.AddWithValue("@Email", emailTextBox.Text);
                     cmd.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
                     cmd.Parameters.AddWithValue("@Salt", salt);
