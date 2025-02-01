@@ -1,23 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO; 
-using System.Linq;
-using System.Text.RegularExpressions; 
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Net.Mail;
-using System.Data.SqlClient;
 
 namespace prij_test_newagain
 {
     public partial class Registration : System.Web.UI.Page
     {
-        //MySql.Data.MySqlClient.MySqlConnection conn;
-        //MySql.Data.MySqlClient.MySqlCommand cmd;
-        //string queryStr;
+       
         private List<string> validationErrors = new List<string>();
         SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
+        const string connString = @"Data Source=127.0.0.1\SQLEXPRESS;Initial Catalog=WebApp;Integrated Security=True;";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,12 +20,11 @@ namespace prij_test_newagain
 
 
             /// change to  hash and salt in registration
-
-            if (SecurePassword.ValidatePassword(passWordTextBox.Text,ref validationErrors, emailTextBox.Text)) // Validate password before registering
+            if (checkUserExists(emailTextBox.Text.ToString()) == false)
             {
-                if (EmailIsValid(emailTextBox.Text))
+                if (SecurePassword.ValidatePassword(passWordTextBox.Text, ref validationErrors, emailTextBox.Text)) // Validate password before registering
                 {
-                    if (checkUserExists(emailTextBox.Text.ToString()) == false)
+                    if (EmailIsValid(emailTextBox.Text))
                     {
                         RegisterUser();
                         Session.Abandon();
@@ -42,23 +33,23 @@ namespace prij_test_newagain
                     }
                     else
                     {
-                        errorLabel.Text = "Email is already exists";
+                        errorLabel.Text = "Email is not valid";
                         errorLabel.Visible = true;
                         errorLabel.ForeColor = System.Drawing.Color.Red;
                     }
-                    
                 }
-                else {
-                    errorLabel.Text = "Email is not valid";
+                else
+                {
+
+                    // Show error message to the user
+                    errorLabel.Text = string.Join("<br/>", validationErrors);
                     errorLabel.Visible = true;
                     errorLabel.ForeColor = System.Drawing.Color.Red;
                 }
-
             }
             else
             {
-                // Show error message to the user
-                errorLabel.Text = string.Join("<br/>", validationErrors);
+                errorLabel.Text = "Email is already exists";
                 errorLabel.Visible = true;
                 errorLabel.ForeColor = System.Drawing.Color.Red;
             }
@@ -66,21 +57,7 @@ namespace prij_test_newagain
         }
 
 
-        /*private void RegisterUser()
-        {
-            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
-            
-            conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
-            conn.Open();
-            queryStr = "";
-            queryStr = "INSERT INTO webapp.new_tableuserregistration(firstname,lastname,username,password,email)" +
-                "VALUES('" + firstNameTextBox.Text + "','" + lastNameTextBox.Text + "','" + userNameTextBox.Text + "','" + passWordTextBox.Text + "','" + emailTextBox.Text + "')";
-            cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn);
-            cmd.ExecuteReader();
-
-            conn.Close();
-
-        }*/
+       
 
         public bool EmailIsValid(string emailaddress)
         {
@@ -98,10 +75,8 @@ namespace prij_test_newagain
         private void RegisterUser()
         {
 
-            /*
-            */
 
-            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+            //string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
             var (hashedSaltPassword, salt) = SecurePassword.CreatePasswordHash(passWordTextBox.Text);
 
@@ -124,7 +99,6 @@ namespace prij_test_newagain
                     cmd.Parameters.AddWithValue("@FirstName", firstNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@LastName", lastNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@UserName", userNameTextBox.Text);
-                    //cmd.Parameters.AddWithValue("@Password", passWordTextBox.Text); // Note: Consider hashing the password before storing it
                     cmd.Parameters.AddWithValue("@Email", emailTextBox.Text);
                     cmd.Parameters.AddWithValue("@password_Hash", hashedSaltPassword);
                     cmd.Parameters.AddWithValue("@Salt", salt);
@@ -148,7 +122,8 @@ namespace prij_test_newagain
 
         private bool checkUserExists(string email)
         {
-            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+            //string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+
             using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
             {
                 conn.Open();
