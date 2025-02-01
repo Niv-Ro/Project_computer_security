@@ -1,21 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO; 
-using System.Linq;
-using System.Text.RegularExpressions; 
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Net.Mail;
-using System.Data.SqlClient;
 
 namespace prij_test_newagain
 {
     public partial class Registration : System.Web.UI.Page
     {
-        //MySql.Data.MySqlClient.MySqlConnection conn;
-        //MySql.Data.MySqlClient.MySqlCommand cmd;
-        //string queryStr;
+       
         private List<string> validationErrors = new List<string>();
         SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
 
@@ -65,21 +56,7 @@ namespace prij_test_newagain
         }
 
 
-        /*private void RegisterUser()
-        {
-            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
-            
-            conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
-            conn.Open();
-            queryStr = "";
-            queryStr = "INSERT INTO webapp.new_tableuserregistration(firstname,lastname,username,password,email)" +
-                "VALUES('" + firstNameTextBox.Text + "','" + lastNameTextBox.Text + "','" + userNameTextBox.Text + "','" + passWordTextBox.Text + "','" + emailTextBox.Text + "')";
-            cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn);
-            cmd.ExecuteReader();
-
-            conn.Close();
-
-        }*/
+       
 
         public bool EmailIsValid(string emailaddress)
         {
@@ -97,8 +74,6 @@ namespace prij_test_newagain
         private void RegisterUser()
         {
 
-            /*
-            */
 
             string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             SecurePasswordHandler SecurePassword = new SecurePasswordHandler();

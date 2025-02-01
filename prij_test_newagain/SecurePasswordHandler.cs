@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Data.SqlTypes;
 using System.Security.Cryptography;
 using System.Text;
 using MySql.Data.MySqlClient;
-
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -135,10 +132,10 @@ public class SecurePasswordHandler
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 // Log exceptions for debugging
-                Console.WriteLine($"Error during password verification for user {userEmail}: {ex.Message}");
+                Console.WriteLine($"Error during password verification for user");
                 return false;
             }
         }
@@ -179,7 +176,7 @@ public class SecurePasswordHandler
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 return false;
             }
@@ -264,7 +261,6 @@ public class SecurePasswordHandler
             {
                 int History_num = ExtractNumber(rule);
 
-                //userEmail = (string)(Session["userEmail"]);
                 // Check if the password matches any of the last 3 passwords
                 SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
                 if (IsPasswordInHistory(userEmail, password, History_num))
@@ -274,8 +270,7 @@ public class SecurePasswordHandler
             }
             else
             {
-                // Handle unknown rules (log or skip)
-                //LogUnrecognizedRule(rule);
+                
             }
         }
 
@@ -288,14 +283,6 @@ public class SecurePasswordHandler
         var match = Regex.Match(rule, @"\d+");
         return match.Success ? int.Parse(match.Value) : 0;
     }
-    /*private void LogUnrecognizedRule(string rule)
-    {
-        string logPath = Server.MapPath("~/UnrecognizedRules.txt"); // Path to log unrecognized rules
-        using (var writer = new StreamWriter(logPath, true))
-        {
-            writer.WriteLine($"Unrecognized Rule: {rule} - {DateTime.Now}");
-        }
-    }*/
 
 }
 

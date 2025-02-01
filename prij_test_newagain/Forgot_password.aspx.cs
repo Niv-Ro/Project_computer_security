@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
-using System.Net.Mime;
-using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -57,8 +50,6 @@ namespace prij_test_newagain
             else
             {
                 ShowMessage("Code is incorrect", System.Drawing.Color.Red);
-
-                //Message.Text = "Code is incorrect"; // Show an error message if code is wrong
                 Message.ForeColor = System.Drawing.Color.Red;
             }
         }
@@ -138,9 +129,9 @@ namespace prij_test_newagain
                 mailTextBox.Visible = false;
                 verifyTextBox.Visible = true;
             }
-            catch (Exception ex)
+            catch 
             {
-                Message.Text = "Error sending email: " + ex.Message; // Handle errors
+                Message.Text = "Error sending email"; // Handle errors
                 Message.ForeColor = System.Drawing.Color.Red;
             }
             finally

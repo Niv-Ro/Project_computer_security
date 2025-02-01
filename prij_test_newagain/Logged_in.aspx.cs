@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -252,7 +250,7 @@ namespace prij_test_newagain
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "error",
                     "alert('Error loading customer data.');", true);

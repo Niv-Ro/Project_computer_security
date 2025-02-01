@@ -1,12 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-
-
-
 
 
 namespace prij_test_newagain
@@ -103,7 +96,7 @@ namespace prij_test_newagain
                     ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterDelay", script, true);
 
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                         Message.Text = "An error occurred while resetting your password. Please try again.";
                         Message.ForeColor = System.Drawing.Color.Red;
@@ -120,50 +113,5 @@ namespace prij_test_newagain
             }
 
         }
-
-        /*private bool Check_email_password(string email, string password)
-        {
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            MySql.Data.MySqlClient.MySqlCommand cmd;
-            MySql.Data.MySqlClient.MySqlDataReader reader;
-
-            // Retrieve connection string
-            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
-            conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
-
-            try
-            {
-                conn.Open();
-
-                // SQL query to check email and password
-                string queryStr = "SELECT * FROM webapp.new_tableuserregistration WHERE email = @Email AND password = @Password";
-                cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn);
-
-                // Use parameterized query
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password);
-
-                reader = cmd.ExecuteReader();
-
-                // Return true if a match is found
-                return reader.HasRows;
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it
-                Message.Text = "An error occurred: " + ex.Message;
-                Message.ForeColor = System.Drawing.Color.Red;
-                return false;
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-        }*/
-
-
     }
 }
