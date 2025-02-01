@@ -19,7 +19,6 @@ public class SecurePasswordHandler
     private const int HASH_SIZE = 16;
     private const int ITERATIONS = 10000;// more iteretions- more difficult to bridg e- protection from brute force attack
 
-    // Database connection string - replace with your actual connection details
     private string CONNECTION_STRING = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
 
     // Class to store password verification result

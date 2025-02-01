@@ -75,8 +75,7 @@ namespace prij_test_newagain
 
                     conn.Open();
 
-                    // Single update query that handles everything
-                    string updateQuery = @"UPDATE webapp.new_tableuserregistration SET password = @Password,password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
+                    string updateQuery = @"UPDATE webapp.new_tableuserregistration SET password_hash = @Password_Hash,salt = @Salt WHERE email = @Email";
                     string queryStr2 = "INSERT INTO webapp.new_user_hash_salt_data (Email, password_hash, salt) " +
                            "VALUES (@Email, @password_Hash, @salt)";
 
@@ -84,7 +83,6 @@ namespace prij_test_newagain
                     {
                     using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(updateQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@Password", newPassword.Text);
                         cmd.Parameters.AddWithValue("@Email", userEmail);
                         cmd.Parameters.AddWithValue("@Password_Hash", hashedSaltPassword);
                         cmd.Parameters.AddWithValue("@Salt", salt);
@@ -123,7 +121,7 @@ namespace prij_test_newagain
 
         }
 
-        private bool Check_email_password(string email, string password)
+        /*private bool Check_email_password(string email, string password)
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
             MySql.Data.MySqlClient.MySqlCommand cmd;
@@ -164,7 +162,7 @@ namespace prij_test_newagain
                     conn.Close();
                 }
             }
-        }
+        }*/
 
 
     }

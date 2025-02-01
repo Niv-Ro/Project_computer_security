@@ -116,7 +116,7 @@ namespace prij_test_newagain
             }
             catch
             {
-                addMessage.Text = SecurityUtilities.SanitizeInput("Error adding customer, customer with this id already exists");
+                addMessage.Text = SecurityUtilities.SanitizeInput("Error adding customer");
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "keepModalOpen",
                     "$('#addCustomerModal').modal('show');", true);
             }
