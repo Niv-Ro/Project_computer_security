@@ -9,7 +9,7 @@ namespace prij_test_newagain
        
         private List<string> validationErrors = new List<string>();
         SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
-        const string connString = @"Data Source=127.0.0.1\SQLEXPRESS;Initial Catalog=WebApp;Integrated Security=True;";
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -76,7 +76,7 @@ namespace prij_test_newagain
         {
 
 
-            //string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             SecurePasswordHandler SecurePassword = new SecurePasswordHandler();
             var (hashedSaltPassword, salt) = SecurePassword.CreatePasswordHash(passWordTextBox.Text);
 
@@ -122,7 +122,7 @@ namespace prij_test_newagain
 
         private bool checkUserExists(string email)
         {
-            //string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
 
             using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connString))
             {
