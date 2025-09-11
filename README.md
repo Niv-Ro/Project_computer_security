@@ -54,4 +54,6 @@ select user, host from mysql.user;
 
 4. The connection string with the right setup is already configured in the web.config file.
 5. Run the project from the default.aspx file (It should run from there automatically).
+
+https://github.com/user-attachments/assets/76b021b3-3a55-4497-905e-1aabc8018ae8
    
